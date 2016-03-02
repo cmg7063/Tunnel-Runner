@@ -9,9 +9,9 @@ namespace Tunnel_Game
     class Character
     {
         // Attributes
-        int health;
-        int speed;
-        string name;
+        private int characterHealth;
+        private int characterSpeed;
+        private string characterName;
 
         // Constructor
         public Character()
@@ -19,6 +19,27 @@ namespace Tunnel_Game
 
         }
 
+        // Properties
+        public string CharacterName
+        {
+            get { return characterName; }
+        }
+        public int CharacterSpeed
+        {
+            get { return characterSpeed; }
+        }
+        public int CharacterHealth
+        {
+            get { return characterHealth; }
+        }
+
+        // Abstract methods
+        abstract public int IncreaseSpeed();
+
         // Methods
+        public void TakeDamage()
+        {
+
+        }
     }
 }
