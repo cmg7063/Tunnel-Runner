@@ -17,6 +17,7 @@ namespace TunnelRunner
         Texture2D buff;
         Texture2D life;
         Texture2D background;
+        
 
 
         public Game1()
@@ -51,10 +52,10 @@ namespace TunnelRunner
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             //Testing Assets
-            //background = new Texture2D();
-            //life = new Texture2D();
-            //buff = new Texture2D();
-            //id = new Texture2D();
+            background = this.Content.Load<Texture2D>("background");
+            life = this.Content.Load<Texture2D>("life");
+            buff = this.Content.Load<Texture2D>("buff");
+            id = this.Content.Load<Texture2D>("id");
 
 
             // TODO: use this.Content to load your game content here
