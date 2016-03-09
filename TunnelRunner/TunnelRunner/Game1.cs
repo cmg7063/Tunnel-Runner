@@ -28,6 +28,8 @@ namespace TunnelRunner
         {
             // TODO: Add your initialization logic here
             IsMouseVisible = true;
+            graphics.PreferredBackBufferWidth = 700;
+            graphics.PreferredBackBufferHeight = 400;
             base.Initialize();
 
         }
