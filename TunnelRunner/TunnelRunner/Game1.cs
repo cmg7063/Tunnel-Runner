@@ -12,6 +12,13 @@ namespace TunnelRunner
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        //Testing Assets
+        Texture2D id;
+        Texture2D buff;
+        Texture2D life;
+        Texture2D background;
+
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -42,6 +49,13 @@ namespace TunnelRunner
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            //Testing Assets
+            //background = new Texture2D();
+            //life = new Texture2D();
+            //buff = new Texture2D();
+            //id = new Texture2D();
+
 
             // TODO: use this.Content to load your game content here
         }
