@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace TunnelRunner
 {
-    class Character
+    public class Character
     {
         // Attributes
         int health;

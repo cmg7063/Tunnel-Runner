@@ -7,18 +7,36 @@ namespace TunnelRunner
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
+    /// 
+    enum GameState { Start, CharacterSelection, Options, Menu, Exit }
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        //Testing Assets
-        Texture2D id;
-        Texture2D buff;
-        Texture2D life;
+        //Game assets
+        Character character;
         Texture2D background;
-        
 
+        //GameState button textures
+        Texture2D startButton;
+        Texture2D exitButton;
+        Texture2D optionButton;     //Start, Exit, and Option appear on the starting screen. Option brings you to external tool
+        Texture2D menuButton;
+        Texture2D norman;
+        Texture2D kate;
+
+        //GameState button positions
+        Vector2 startPosition;
+        Vector2 exitPosition;
+        Vector2 optionPosition;
+        Vector2 menuPosition;
+        Vector2 characterPosition;
+
+        GameState gameState;
+
+        MouseState msState;
+        MouseState previousMsState;
 
         public Game1()
         {
@@ -38,8 +56,14 @@ namespace TunnelRunner
             IsMouseVisible = true;
             graphics.PreferredBackBufferWidth = 700;
             graphics.PreferredBackBufferHeight = 400;
-            base.Initialize();
 
+            startPosition = new Vector2((GraphicsDevice.Viewport.Width / 2) - 50, 200);
+            optionPosition = new Vector2((GraphicsDevice.Viewport.Width / 2) - 50, 250);
+            exitPosition = new Vector2((GraphicsDevice.Viewport.Width / 2) - 50, 300);
+
+            gameState = GameState.Menu;
+
+            base.Initialize();
         }
 
         /// <summary>
@@ -51,12 +75,9 @@ namespace TunnelRunner
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            //Testing Assets
-            background = this.Content.Load<Texture2D>("background");
-            life = this.Content.Load<Texture2D>("life");
-            buff = this.Content.Load<Texture2D>("buff");
-            id = this.Content.Load<Texture2D>("id");
-
+            startButton = Content.Load<Texture2D>("start");
+            optionButton = Content.Load<Texture2D>("option");
+            exitButton = Content.Load<Texture2D>("exit");
 
             // TODO: use this.Content to load your game content here
         }
@@ -93,7 +114,10 @@ namespace TunnelRunner
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            spriteBatch.Begin();
             // TODO: Add your drawing code here
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
