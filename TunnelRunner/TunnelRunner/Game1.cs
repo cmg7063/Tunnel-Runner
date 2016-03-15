@@ -8,30 +8,32 @@ namespace TunnelRunner
     /// This is the main type for your game.
     /// </summary>
     /// 
-    enum GameState { Start, CharacterSelection, Options, Menu, Exit }
+    enum GameState { Start, CharacterSelection, Options, Playing, Pause, Menu, Exit }
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        //Game assets
+        // Game assets
         Character character;
-        Texture2D background;
+        Texture2D background;   // Background is referring to the menu background. Game background will be animated
 
-        //GameState button textures
+        Vector2 backgroundPos;
+
+        // GameState button textures
         Texture2D startButton;
         Texture2D exitButton;
-        Texture2D optionButton;     //Start, Exit, and Option appear on the starting screen. Option brings you to external tool
+        Texture2D optionButton;     // Start, Exit, and Option appear on the starting screen. Option brings you to external tool
         Texture2D menuButton;
         Texture2D norman;
         Texture2D kate;
 
-        //GameState button positions
-        Vector2 startPosition;
-        Vector2 exitPosition;
-        Vector2 optionPosition;
-        Vector2 menuPosition;
-        Vector2 characterPosition;
+        // GameState button positions
+        Vector2 startPos;
+        Vector2 exitPos;
+        Vector2 optionPos;
+        Vector2 menuPos;
+        Vector2 characterPos;
 
         GameState gameState;
 
@@ -57,9 +59,10 @@ namespace TunnelRunner
             graphics.PreferredBackBufferWidth = 700;
             graphics.PreferredBackBufferHeight = 400;
 
-            startPosition = new Vector2((GraphicsDevice.Viewport.Width / 2) - 50, 200);
-            optionPosition = new Vector2((GraphicsDevice.Viewport.Width / 2) - 50, 250);
-            exitPosition = new Vector2((GraphicsDevice.Viewport.Width / 2) - 50, 300);
+            backgroundPos = new Vector2(0, 0);
+            startPos = new Vector2((GraphicsDevice.Viewport.Width / 2) - 50, 200);
+            optionPos = new Vector2((GraphicsDevice.Viewport.Width / 2) - 50, 250);
+            exitPos = new Vector2((GraphicsDevice.Viewport.Width / 2) - 50, 300);
 
             gameState = GameState.Menu;
 
@@ -78,6 +81,7 @@ namespace TunnelRunner
             startButton = Content.Load<Texture2D>("start");
             optionButton = Content.Load<Texture2D>("option");
             exitButton = Content.Load<Texture2D>("exit");
+            background = Content.Load<Texture2D>("background");
 
             // TODO: use this.Content to load your game content here
         }
@@ -115,11 +119,43 @@ namespace TunnelRunner
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
-            // TODO: Add your drawing code here
+
+            if (gameState == GameState.Menu)
+            {
+                spriteBatch.Draw(background, backgroundPos, Color.White);
+                spriteBatch.Draw(startButton, startPos, Color.White);
+                spriteBatch.Draw(optionButton, optionPos, Color.White);
+                spriteBatch.Draw(exitButton, exitPos, Color.White);
+            }
+            if (gameState == GameState.Start)
+            {
+                gameState = GameState.CharacterSelection;
+            }
+            if (gameState == GameState.CharacterSelection)
+            {
+                // if choose norman, character.Draw(lkjadflk)
+                // if choose kate, character.Draw(lkjadflk)
+            }
+            if (gameState == GameState.Exit)
+            {
+                gameState = GameState.CharacterSelection;
+            }
+            // Draw the game while playing
+            if (gameState == GameState.Playing)
+            {
+                // Draw character, background, etc. in this statement
+                spriteBatch.Draw(background, )
+            }
 
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        //Handle click events
+        public void MouseClick(int x, int y)
+        {
+
         }
     }
 }
