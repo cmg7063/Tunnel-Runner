@@ -127,24 +127,34 @@ namespace TunnelRunner
                 spriteBatch.Draw(optionButton, optionPos, Color.White);
                 spriteBatch.Draw(exitButton, exitPos, Color.White);
             }
+
             if (gameState == GameState.Start)
             {
                 gameState = GameState.CharacterSelection;
             }
+
             if (gameState == GameState.CharacterSelection)
             {
                 // if choose norman, character.Draw(lkjadflk)
                 // if choose kate, character.Draw(lkjadflk)
             }
+
+            if (gameState == GameState.Options)
+            {
+                // Level editor
+                // Music volume
+                // Sfx volume
+            }
+
             if (gameState == GameState.Exit)
             {
                 gameState = GameState.CharacterSelection;
             }
+
             // Draw the game while playing
             if (gameState == GameState.Playing)
             {
-                // Draw character, background, etc. in this statement
-                spriteBatch.Draw(background, )
+                // Draw character, animated background, etc. in this statement
             }
 
             spriteBatch.End();
@@ -155,7 +165,19 @@ namespace TunnelRunner
         //Handle click events
         public void MouseClick(int x, int y)
         {
+            Rectangle mouseClick = new Rectangle(x, y, 10, 10);
 
+            if (gameState == GameState.Menu)
+            {
+                Rectangle startButtonRect = new Rectangle((int)startPos.X, (int)startPos.Y, 100, 20);
+                Rectangle exitButtonRect = new Rectangle((int)exitPos.X, (int)exitPos.Y, 100, 20);
+                Rectangle optionButtonRect = new Rectangle((int)optionPos.X, (int)optionPos.Y, 100, 20);
+            }
+
+            if (gameState == GameState.Start)
+            {
+                Rectangle startButtonRect = new Rectangle((int)startPos.X, (int)startPos.Y, 100, 20);
+            }
         }
     }
 }
