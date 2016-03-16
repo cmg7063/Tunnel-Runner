@@ -91,6 +91,7 @@ namespace TunnelRunner
             backgroundPos = new Vector2(0, 0);
             normanPos = new Vector2(350, (GraphicsDevice.Viewport.Height / 2) - 50);
             katePos = new Vector2(400, (GraphicsDevice.Viewport.Height / 2) - 50);
+
             //there is 25 pix gap in between each button
             startButtPos = new Vector2(12,250);
             charaSelButtPos = new Vector2(187, 250);
@@ -122,8 +123,8 @@ namespace TunnelRunner
 
             loadingScreen = Content.Load<Texture2D>("loading");*/
 
-            tunnelWall1 = new Scrolling(Content.Load<Texture2D>("Tunnel Walls/Wall1"), new Rectangle(0, 0, 700, 400));
-            tunnelWall2 = new Scrolling(Content.Load<Texture2D>("Tunnel Walls/Wall2"), new Rectangle(700, 0, 700, 400));
+            tunnelWall1 = new Scrolling(Content.Load<Texture2D>("Tunnel Walls/Wall1"), new Rectangle(0, 0, 700, 400), 5);
+            tunnelWall2 = new Scrolling(Content.Load<Texture2D>("Tunnel Walls/Wall2"), new Rectangle(700, 0, 700, 400), 5);
 
             startButton = Content.Load<Texture2D>("Buttons/Start");
             optionButton = Content.Load<Texture2D>("Buttons/Options");

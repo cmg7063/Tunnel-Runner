@@ -12,7 +12,6 @@ namespace TunnelRunner
     {
         // Attributes
         int health;
-        int initialSpeed;
         List<int> powerUp;
         Texture2D characterSprite;
         Rectangle position;
@@ -44,6 +43,7 @@ namespace TunnelRunner
         {
 
         }
+
         // Parameterized Character() constructor
         public Character(int x, int y, int width, int height)
         {

@@ -9,8 +9,17 @@ namespace TunnelRunner
 {
     class TunnelBackground
     {
+        // Attributes
         public Texture2D tunnel;
         public Rectangle rectangle;
+        public int movingSpeed;
+
+        // Properties
+        public int MovingSpeed
+        {
+            get { return movingSpeed; }
+            set { movingSpeed = value; }
+        }
 
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -18,17 +27,19 @@ namespace TunnelRunner
         }
     }
 
+    // Sub-class
     class Scrolling : TunnelBackground
     {
-        public Scrolling(Texture2D newTunnel, Rectangle newRectangle)
+        public Scrolling(Texture2D newTunnel, Rectangle newRectangle, int newSpeed)
         {
             tunnel = newTunnel;
             rectangle = newRectangle;
+            movingSpeed = newSpeed;
         }
 
         public void Update()
         {
-            rectangle.X -= 3;
+            rectangle.X -= movingSpeed;
         }
     }
 }
