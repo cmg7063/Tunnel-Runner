@@ -100,7 +100,7 @@
     <Content Include="Content\Tunnel Walls\Wall1.JPG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Tunnel Walls\Wall2.png">
+    <Content Include="Content\Tunnel Walls\Wall2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Icon.ico" />

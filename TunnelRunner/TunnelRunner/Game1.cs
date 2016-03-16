@@ -35,6 +35,7 @@ namespace TunnelRunner
         Vector2 backgroundPos;
         Vector2 normanPos;
         Vector2 katePos;
+        Vector2 titlePos;
 
         // GameState button textures
         Texture2D startButton;
@@ -94,6 +95,7 @@ namespace TunnelRunner
             katePos = new Vector2(400, (GraphicsDevice.Viewport.Height / 2) - 50);
 
             //there is 25 pix gap in between each button
+            titlePos = new Vector2(GraphicsDevice.Viewport.Width / 2, 350);
             startButtPos = new Vector2(12,300);
             charaSelButtPos = new Vector2(187, 300);
             optionButtPos = new Vector2( 362, 300);
@@ -131,7 +133,7 @@ namespace TunnelRunner
             optionButton = Content.Load<Texture2D>("Buttons/Options");
             exitButton = Content.Load<Texture2D>("Buttons/Exit");
             charaSelButt = Content.Load<Texture2D>("Buttons/Selection");
-            background = Content.Load<Texture2D>("Tunnel Walls/Wall1");
+            background = Content.Load<Texture2D>("background");
             kateSprite = Content.Load<Texture2D>("kateSprite");
             kate = Content.Load<Texture2D>("kate");
             norman = Content.Load<Texture2D>("norman");
