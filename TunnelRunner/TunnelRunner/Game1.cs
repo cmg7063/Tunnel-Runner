@@ -20,22 +20,22 @@ namespace TunnelRunner
         Texture2D background;   // Background is referring to the menu background. Game background will be animated
         Texture2D kate;
         Texture2D norman;
-        Texture2D normanSprite;
         Texture2D kateSprite;
+        Texture2D normanSprite;
         Texture2D loadingScreen;
-        
-        const int PLAYER_W = 124;
-        const int PLAYER_H = 200;
 
         Vector2 backgroundPos;
         Vector2 normanPos;
         Vector2 katePos;
 
+        const int PLAYER_W = 124;
+        const int PLAYER_H = 200;
+
         // GameState button textures
         Texture2D startButton;
         Texture2D exitButton;
         Texture2D charaSelButt;
-        Texture2D optionButton;     // Start, Exit, and Option appear on the starting screen. Option brings you to external tool
+        Texture2D optionButton;     // Start, Exit, Character Selection, and Option appear on the starting screen. Option brings you to external tool
         Texture2D menuButton;
         Texture2D normanButton;
         Texture2D kateButton;
@@ -77,7 +77,8 @@ namespace TunnelRunner
             backgroundPos = new Vector2(0, 0);
             normanPos = new Vector2(350, (GraphicsDevice.Viewport.Height / 2) - 50);
             katePos = new Vector2(400, (GraphicsDevice.Viewport.Height / 2) - 50);
-            //there is 25 pix gap in between each button
+
+            // There is 25px gap in between each button
             startButtPos = new Vector2(12,250);
             charaSelButtPos = new Vector2(187, 250);
             optionButtPos = new Vector2( 362, 250);
@@ -275,24 +276,22 @@ namespace TunnelRunner
             }
             if (gameState == GameState.CharacterSelection)
             {
-                    //selecting which character to use
-                    Rectangle normanRec = new Rectangle((int)normanPos.X, (int)normanPos.Y, PLAYER_W, PLAYER_H);
-                    Rectangle kateRec = new Rectangle((int)katePos.X, (int)katePos.Y, PLAYER_W, PLAYER_H);
-                    if (mouseClick.Intersects(normanRec))
+                    // Selecting which character to use
+                    Rectangle normanRect = new Rectangle((int)normanPos.X, (int)normanPos.Y, PLAYER_W, PLAYER_H);
+                    Rectangle kateRect = new Rectangle((int)katePos.X, (int)katePos.Y, PLAYER_W, PLAYER_H);
+                    if (mouseClick.Intersects(normanRect))
                     {
                         gameState = GameState.Playing;
                         character.CharacterSprite = normanSprite;
                     }
-                    if (mouseClick.Intersects(kateRec))
+                    if (mouseClick.Intersects(kateRect))
                     {
                         gameState = GameState.Playing;
                         character.CharacterSprite = kateSprite;
                     }
                 
             }
-
-                
-            }
         }
     }
+}
 
