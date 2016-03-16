@@ -18,6 +18,11 @@ namespace TunnelRunner
         Texture2D characterSprite;
         Rectangle position;
         
+        //defaul constructor
+        public Character()
+        {
+
+        }
         // Parameterized Character() constructor
         public Character(int x, int y, int width, int height, string name, int initialSpeed)
         {
