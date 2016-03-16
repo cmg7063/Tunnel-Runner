@@ -23,9 +23,13 @@ namespace TunnelRunner
         Texture2D normanSprite;
         Texture2D kateSprite;
         Texture2D loadingScreen;
+
+        // Tunnel walls
+        Scrolling tunnelWall1;
+        Scrolling tunnelWall2;
         
-        const int PLAYER_W = 124;
-        const int PLAYER_H = 200;
+        const int PLAYER_W = 108;
+        const int PLAYER_H = 150;
 
         Vector2 backgroundPos;
         Vector2 normanPos;
@@ -59,6 +63,12 @@ namespace TunnelRunner
         KeyboardState kbState;
         KeyboardState previousKbState;
 
+        //animation stuff
+        int frame;
+        int numFrames = 4;
+        int frameElapsed;
+        double timePerFrame = 100;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -88,6 +98,7 @@ namespace TunnelRunner
             exitButtPos = new Vector2( 537, 250);
             character = new Character();
             character.CharacterSprite = kateSprite;
+            character.Position = new Rectangle(10, 250, PLAYER_W, PLAYER_H);
             gameState = GameState.Menu;
 
             msState = Mouse.GetState();
@@ -107,15 +118,17 @@ namespace TunnelRunner
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            /*normanSprite = Content.Load<Texture2D>("norman");
-            kateSprite = Content.Load<Texture2D>("kate");
+            /*
 
             loadingScreen = Content.Load<Texture2D>("loading");*/
 
-            startButton = Content.Load<Texture2D>("Start");
-            optionButton = Content.Load<Texture2D>("Options");
-            exitButton = Content.Load<Texture2D>("Exit");
-            charaSelButt = Content.Load<Texture2D>("Selection");
+            tunnelWall1 = new Scrolling(Content.Load<Texture2D>("Tunnel Walls/Wall1"), new Rectangle(0, 0, 700, 400));
+            tunnelWall2 = new Scrolling(Content.Load<Texture2D>("Tunnel Walls/Wall2"), new Rectangle(700, 0, 700, 400));
+
+            startButton = Content.Load<Texture2D>("Buttons/Start");
+            optionButton = Content.Load<Texture2D>("Buttons/Options");
+            exitButton = Content.Load<Texture2D>("Buttons/Exit");
+            charaSelButt = Content.Load<Texture2D>("Buttons/Selection");
             background = Content.Load<Texture2D>("background");
             kateSprite = Content.Load<Texture2D>("kateSprite");
             kate = Content.Load<Texture2D>("kate");
@@ -144,6 +157,9 @@ namespace TunnelRunner
                 Exit();
 
             // TODO: Add your update logic here
+            frameElapsed = (int)(gameTime.TotalGameTime.TotalMilliseconds / timePerFrame);
+            frame = frameElapsed % numFrames + 1;
+
             switch (gameState)
             {
                 case GameState.Menu:
@@ -168,13 +184,27 @@ namespace TunnelRunner
                     previousMsState = msState;
                     break;
                 case GameState.Playing:
-                    if (kbState.IsKeyDown(Keys.W))
+
+                    // Scrolling backgrounds
+                    if (tunnelWall1.rectangle.X + tunnelWall1.tunnel.Width <= 0)
                     {
-                        character.Position = new Rectangle(character.Position.X, character.Position.Y - 3, character.Position.Width, character.Position.Height);
+                        tunnelWall1.rectangle.X = tunnelWall2.rectangle.X + tunnelWall2.tunnel.Width;
                     }
-                    if (kbState.IsKeyDown(Keys.A))
+                    if (tunnelWall2.rectangle.X + tunnelWall2.tunnel.Width <= 0)
                     {
-                        character.Position = new Rectangle(character.Position.X, character.Position.Y + 3, character.Position.Width, character.Position.Height);
+                        tunnelWall2.rectangle.X = tunnelWall1.rectangle.X + tunnelWall1.tunnel.Width;
+                    }
+                    tunnelWall1.Update();
+                    tunnelWall2.Update();
+
+                    kbState = Keyboard.GetState();
+                    if (kbState.IsKeyDown(Keys.Up))
+                    {
+                        character.Position = new Rectangle(character.Position.X, character.Position.Y - 3, PLAYER_W, PLAYER_H);
+                    }
+                    if (kbState.IsKeyDown(Keys.Down))
+                    {
+                        character.Position = new Rectangle(character.Position.X, character.Position.Y + 3, PLAYER_W, PLAYER_H);
                     }
                     break;
                 default:
@@ -206,47 +236,15 @@ namespace TunnelRunner
                     spriteBatch.Draw(kate, new Vector2(50, 100), Color.White);
                     spriteBatch.Draw(norman, new Vector2(484, 100), Color.White);
                     break;
-            }
-            /*
-            if (gameState == GameState.Menu)
-            {
-                spriteBatch.Draw(background, backgroundPos, Color.White);
-                spriteBatch.Draw(startButton, startPos, Color.White);
-                spriteBatch.Draw(optionButton, optionPos, Color.White);
-                spriteBatch.Draw(exitButton, exitPos, Color.White);
-            }
+                case GameState.Playing:
 
-            if (gameState == GameState.Start)
-            {
-                gameState = GameState.CharacterSelection;
+                    tunnelWall1.Draw(spriteBatch);
+                    tunnelWall2.Draw(spriteBatch);
+                    
+                    spriteBatch.Draw(kateSprite, character.Position, new Rectangle(frame * PLAYER_W, 0, PLAYER_W, PLAYER_H),Color.White);
+                    
+                    break;
             }
-
-            if (gameState == GameState.CharacterSelection)
-            {
-                /*spriteBatch.Draw(background, backgroundPos, Color.White);
-                spriteBatch.Draw(normanSprite, new Vector2(350, 200), Color.White);
-                spriteBatch.Draw(normanSprite, new Vector2(400, 200), Color.White);
-            }
-
-            if (gameState == GameState.Options)
-            {
-                // Level editor
-                // Music volume
-                // Sfx volume
-            }
-
-            if (gameState == GameState.Exit)
-            {
-                gameState = GameState.CharacterSelection;
-            }
-
-            // Draw the game while playing
-            if (gameState == GameState.Playing)
-            {
-                // Draw character, animated background, etc. in this statement
-            }*/
-        
-
             spriteBatch.End();
 
             base.Draw(gameTime);
@@ -273,7 +271,7 @@ namespace TunnelRunner
                 Rectangle charaSelButtRect = new Rectangle((int)charaSelButtPos.X, (int)charaSelButtPos.Y, BUTT_W, BUTT_H);
                 if (mouseClick.Intersects(startButtonRect))
                 {
-                    gameState = GameState.Start;
+                    gameState = GameState.Playing;
 
                 }
                 if (mouseClick.Intersects(optionButtonRect))

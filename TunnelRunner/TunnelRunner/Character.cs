@@ -17,17 +17,6 @@ namespace TunnelRunner
         Texture2D characterSprite;
         Rectangle position;
         
-        // Default constructor
-        public Character()
-        {
-
-        }
-        // Parameterized Character() constructor
-        public Character(int x, int y, int width, int height, int initialSpeed)
-        {
-            position = new Rectangle(x, y, width, height);
-            this.initialSpeed = initialSpeed;
-        }
         // Properties
         public List<int> PowerUp
         {
@@ -49,6 +38,18 @@ namespace TunnelRunner
             get { return position; }
             set { position = value; }
         }
+
+        // Default constructor
+        public Character()
+        {
+
+        }
+        // Parameterized Character() constructor
+        public Character(int x, int y, int width, int height)
+        {
+            position = new Rectangle(x, y, width, height);
+        }
+
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(characterSprite, position, Color.White);
