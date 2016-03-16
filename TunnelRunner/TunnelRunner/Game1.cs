@@ -39,6 +39,7 @@ namespace TunnelRunner
         Texture2D menuButton;
         Texture2D normanButton;
         Texture2D kateButton;
+
         const int BUTT_W = 150;
         const int BUTT_H = 75;
 
@@ -276,14 +277,14 @@ namespace TunnelRunner
             if (gameState == GameState.CharacterSelection)
             {
                     //selecting which character to use
-                    Rectangle normanRec = new Rectangle((int)normanPos.X, (int)normanPos.Y, PLAYER_W, PLAYER_H);
-                    Rectangle kateRec = new Rectangle((int)katePos.X, (int)katePos.Y, PLAYER_W, PLAYER_H);
-                    if (mouseClick.Intersects(normanRec))
+                    Rectangle normanRect = new Rectangle((int)normanPos.X, (int)normanPos.Y, PLAYER_W, PLAYER_H);
+                    Rectangle kateRect = new Rectangle((int)katePos.X, (int)katePos.Y, PLAYER_W, PLAYER_H);
+                    if (mouseClick.Intersects(normanRect))
                     {
                         gameState = GameState.Playing;
                         character.CharacterSprite = normanSprite;
                     }
-                    if (mouseClick.Intersects(kateRec))
+                    if (mouseClick.Intersects(kateRect))
                     {
                         gameState = GameState.Playing;
                         character.CharacterSprite = kateSprite;
