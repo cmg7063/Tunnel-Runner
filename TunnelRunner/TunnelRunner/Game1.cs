@@ -9,7 +9,7 @@ namespace TunnelRunner
     /// This is the main type for your game.
     /// </summary>
     /// 
-    enum GameState { Start, CharacterSelection, Options, Playing, Pause, Menu, Exit }
+    enum GameState {CharacterSelection, Options, Playing, Pause, Menu, Exit }
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
@@ -23,6 +23,7 @@ namespace TunnelRunner
         Texture2D normanSprite;
         Texture2D kateSprite;
         Texture2D loadingScreen;
+        Texture2D title;
 
         // Tunnel walls
         Scrolling tunnelWall1;
@@ -93,10 +94,10 @@ namespace TunnelRunner
             katePos = new Vector2(400, (GraphicsDevice.Viewport.Height / 2) - 50);
 
             //there is 25 pix gap in between each button
-            startButtPos = new Vector2(12,250);
-            charaSelButtPos = new Vector2(187, 250);
-            optionButtPos = new Vector2( 362, 250);
-            exitButtPos = new Vector2( 537, 250);
+            startButtPos = new Vector2(12,300);
+            charaSelButtPos = new Vector2(187, 300);
+            optionButtPos = new Vector2( 362, 300);
+            exitButtPos = new Vector2( 537, 300);
             character = new Character();
             character.CharacterSprite = kateSprite;
             character.Position = new Rectangle(10, 250, PLAYER_W, PLAYER_H);
@@ -130,10 +131,11 @@ namespace TunnelRunner
             optionButton = Content.Load<Texture2D>("Buttons/Options");
             exitButton = Content.Load<Texture2D>("Buttons/Exit");
             charaSelButt = Content.Load<Texture2D>("Buttons/Selection");
-            background = Content.Load<Texture2D>("background");
+            background = Content.Load<Texture2D>("Tunnel Walls/Wall1");
             kateSprite = Content.Load<Texture2D>("kateSprite");
             kate = Content.Load<Texture2D>("kate");
             norman = Content.Load<Texture2D>("norman");
+            title = Content.Load<Texture2D>("title");
 
             // TODO: use this.Content to load your game content here
         }
@@ -181,6 +183,7 @@ namespace TunnelRunner
                     if (previousMsState.LeftButton == ButtonState.Pressed && msState.LeftButton == ButtonState.Released)
                     {
                         MouseClick(msState.X, msState.Y);
+                        gameState = GameState.Playing;
                     }
                     previousMsState = msState;
                     break;
@@ -232,6 +235,7 @@ namespace TunnelRunner
                     spriteBatch.Draw(optionButton, optionButtPos, Color.White);
                     spriteBatch.Draw(charaSelButt, charaSelButtPos, Color.White);
                     spriteBatch.Draw(exitButton, exitButtPos, Color.White);
+                    spriteBatch.Draw(title, new Vector2(105, 5), Color.White);
                     break;
                 case GameState.CharacterSelection:
                     spriteBatch.Draw(kate, new Vector2(50, 100), Color.White);
@@ -291,19 +295,17 @@ namespace TunnelRunner
             }
             if (gameState == GameState.CharacterSelection)
             {
-                    //selecting which character to use
-                    Rectangle normanRect = new Rectangle((int)normanPos.X, (int)normanPos.Y, PLAYER_W, PLAYER_H);
-                    Rectangle kateRect = new Rectangle((int)katePos.X, (int)katePos.Y, PLAYER_W, PLAYER_H);
-                    if (mouseClick.Intersects(normanRect))
-                    {
-                        gameState = GameState.Playing;
-                        character.CharacterSprite = normanSprite;
-                    }
-                    if (mouseClick.Intersects(kateRect))
-                    {
-                        gameState = GameState.Playing;
-                        character.CharacterSprite = kateSprite;
-                    }
+                //selecting which character to use
+                Rectangle normanRect = new Rectangle((int)normanPos.X, (int)normanPos.Y, PLAYER_W, PLAYER_H);
+                Rectangle kateRect = new Rectangle((int)katePos.X, (int)katePos.Y, PLAYER_W, PLAYER_H);
+                if (mouseClick.Intersects(normanRect))
+                {
+                    character.CharacterSprite = normanSprite;
+                }
+                if (mouseClick.Intersects(kateRect))
+                {
+                    character.CharacterSprite = kateSprite;
+                }
                 
             }
 
