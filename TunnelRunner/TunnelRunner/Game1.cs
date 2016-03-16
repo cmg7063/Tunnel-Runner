@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Threading;
 
 namespace TunnelRunner
 {
@@ -17,16 +18,21 @@ namespace TunnelRunner
         // Game assets
         Character character;
         Texture2D background;   // Background is referring to the menu background. Game background will be animated
+        Texture2D normanSprite;
+        Texture2D kateSprite;
+        Texture2D loadingScreen;
 
         Vector2 backgroundPos;
+        Vector2 normanPos;
+        Vector2 katePos;
 
         // GameState button textures
         Texture2D startButton;
         Texture2D exitButton;
         Texture2D optionButton;     // Start, Exit, and Option appear on the starting screen. Option brings you to external tool
         Texture2D menuButton;
-        Texture2D norman;
-        Texture2D kate;
+        Texture2D normanButton;
+        Texture2D kateButton;
 
         // GameState button positions
         Vector2 startPos;
@@ -60,12 +66,17 @@ namespace TunnelRunner
             graphics.PreferredBackBufferHeight = 400;
 
             backgroundPos = new Vector2(0, 0);
+            normanPos = new Vector2(350, (GraphicsDevice.Viewport.Height / 2) - 50);
+            katePos = new Vector2(400, (GraphicsDevice.Viewport.Height / 2) - 50);
+
             startPos = new Vector2((GraphicsDevice.Viewport.Width / 2) - 50, 200);
             optionPos = new Vector2((GraphicsDevice.Viewport.Width / 2) - 50, 250);
             exitPos = new Vector2((GraphicsDevice.Viewport.Width / 2) - 50, 300);
 
             gameState = GameState.Menu;
 
+            msState = Mouse.GetState();
+            previousMsState = msState;
             base.Initialize();
         }
 
@@ -77,6 +88,11 @@ namespace TunnelRunner
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            normanSprite = Content.Load<Texture2D>("norman");
+            kateSprite = Content.Load<Texture2D>("kate");
+
+            loadingScreen = Content.Load<Texture2D>("loading");
 
             startButton = Content.Load<Texture2D>("start");
             optionButton = Content.Load<Texture2D>("option");
@@ -106,6 +122,17 @@ namespace TunnelRunner
                 Exit();
 
             // TODO: Add your update logic here
+            msState = Mouse.GetState();
+            if(previousMsState.LeftButton == ButtonState.Pressed && msState.LeftButton == ButtonState.Released)
+            {
+                MouseClick(msState.X, msState.Y);
+            }
+            previousMsState = msState;
+
+            if(gameState == GameState.Playing)
+            {
+                LoadGame();
+            }
 
             base.Update(gameTime);
         }
@@ -135,8 +162,9 @@ namespace TunnelRunner
 
             if (gameState == GameState.CharacterSelection)
             {
-                // if choose norman, character.Draw(lkjadflk)
-                // if choose kate, character.Draw(lkjadflk)
+                spriteBatch.Draw(background, backgroundPos, Color.White);
+                spriteBatch.Draw(normanSprite, new Vector2(350, 200), Color.White);
+                spriteBatch.Draw(normanSprite, new Vector2(400, 200), Color.White);
             }
 
             if (gameState == GameState.Options)
@@ -162,7 +190,15 @@ namespace TunnelRunner
             base.Draw(gameTime);
         }
 
-        //Handle click events
+        public void LoadGame()
+        {
+            // load the animated bg of the game
+            // gameBackground = Content.Load<Texture2D>("tunnels");
+            // Thread.Sleep(3000);
+            // gameState = GameState.Playing;
+        }
+
+        // Handle click events
         public void MouseClick(int x, int y)
         {
             Rectangle mouseClick = new Rectangle(x, y, 10, 10);
@@ -172,11 +208,35 @@ namespace TunnelRunner
                 Rectangle startButtonRect = new Rectangle((int)startPos.X, (int)startPos.Y, 100, 20);
                 Rectangle exitButtonRect = new Rectangle((int)exitPos.X, (int)exitPos.Y, 100, 20);
                 Rectangle optionButtonRect = new Rectangle((int)optionPos.X, (int)optionPos.Y, 100, 20);
-            }
 
-            if (gameState == GameState.Start)
-            {
-                Rectangle startButtonRect = new Rectangle((int)startPos.X, (int)startPos.Y, 100, 20);
+                if(mouseClick.Intersects(startButtonRect))
+                {
+                    gameState = GameState.Start;
+
+                    Rectangle normanButtonRect = new Rectangle((int)normanPos.X, (int)normanPos.Y, 100, 20);
+                    Rectangle kateButtonRect = new Rectangle((int)katePos.X, (int)katePos.Y, 100, 20);
+
+                    if (mouseClick.Intersects(normanButtonRect))
+                    {
+                        gameState = GameState.Playing;
+                        character.CharacterSprite = normanSprite;
+                    }
+                    if (mouseClick.Intersects(kateButtonRect))
+                    {
+                        gameState = GameState.Playing;
+                        character.CharacterSprite = kateSprite;
+                    }
+                }
+
+                if (mouseClick.Intersects(optionButtonRect))
+                {
+                    gameState = GameState.Options;
+                }
+
+                if (mouseClick.Intersects(exitButtonRect))
+                {
+                    Exit();
+                }
             }
         }
     }

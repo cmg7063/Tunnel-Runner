@@ -37,6 +37,11 @@ namespace TunnelRunner
             get { return health; }
             set { health = value; }
         }
+        public Texture2D CharacterSprite
+        {
+            get { return characterSprite; }
+            set { characterSprite = value; }
+        }
 
         public string Name
         {
