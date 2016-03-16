@@ -56,6 +56,9 @@ namespace TunnelRunner
         MouseState msState;
         MouseState previousMsState;
 
+        KeyboardState kbState;
+        KeyboardState previousKbState;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -89,6 +92,9 @@ namespace TunnelRunner
 
             msState = Mouse.GetState();
             previousMsState = msState;
+
+            kbState = Keyboard.GetState();
+            previousKbState = kbState;
             base.Initialize();
         }
 
@@ -160,6 +166,16 @@ namespace TunnelRunner
                         MouseClick(msState.X, msState.Y);
                     }
                     previousMsState = msState;
+                    break;
+                case GameState.Playing:
+                    if (kbState.IsKeyDown(Keys.W))
+                    {
+                        character.Position = new Rectangle(character.Position.X, character.Position.Y - 3, character.Position.Width, character.Position.Height);
+                    }
+                    if (kbState.IsKeyDown(Keys.A))
+                    {
+                        character.Position = new Rectangle(character.Position.X, character.Position.Y + 3, character.Position.Width, character.Position.Height);
+                    }
                     break;
                 default:
                     break;

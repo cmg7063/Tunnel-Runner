@@ -12,25 +12,22 @@ namespace TunnelRunner
     {
         // Attributes
         int health;
-        string name;
         int initialSpeed;
         List<int> powerUp;
         Texture2D characterSprite;
         Rectangle position;
         
-        //defaul constructor
+        // Default constructor
         public Character()
         {
 
         }
         // Parameterized Character() constructor
-        public Character(int x, int y, int width, int height, string name, int initialSpeed)
+        public Character(int x, int y, int width, int height, int initialSpeed)
         {
             position = new Rectangle(x, y, width, height);
-            this.name = name;
             this.initialSpeed = initialSpeed;
         }
-
         // Properties
         public List<int> PowerUp
         {
@@ -47,13 +44,6 @@ namespace TunnelRunner
             get { return characterSprite; }
             set { characterSprite = value; }
         }
-
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-
         public Rectangle Position
         {
             get { return position; }
