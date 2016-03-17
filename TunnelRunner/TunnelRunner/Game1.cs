@@ -10,6 +10,7 @@ namespace TunnelRunner
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        SpriteFont spriteFont;
 
         // Game assets
         Character character;
@@ -154,7 +155,6 @@ namespace TunnelRunner
 
                     if (gameState == GameState.Playing)
                     {
-                        LoadGame();
                     }
                     break;
                 case GameState.CharacterSelection:
@@ -222,7 +222,8 @@ namespace TunnelRunner
                     tunnelWall2.Draw(spriteBatch);
                     
                     spriteBatch.Draw(kateSprite, character.Position, new Rectangle(frame * PLAYER_W, 0, PLAYER_W, PLAYER_H),Color.White);
-                    
+                    //spriteBatch.DrawString(spriteFont, "Health: " + character.Health, new Vector2(250.0f, 0f), Color.White);
+
                     break;
             }
             spriteBatch.End();
