@@ -2,6 +2,10 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Threading;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace TunnelRunner
 {
@@ -21,6 +25,9 @@ namespace TunnelRunner
         Texture2D kateSprite;
         Texture2D loadingScreen;
         Texture2D title;
+        Texture2D healthBarThree;
+        Texture2D chair;
+        
         
 
         // Tunnel walls
@@ -64,6 +71,8 @@ namespace TunnelRunner
         KeyboardState kbState;
         KeyboardState previousKbState;
 
+        List<Obstacles> chairList;
+
         //animation stuff
         int frame;
         int numFrames = 4;
@@ -97,9 +106,10 @@ namespace TunnelRunner
             character.CharacterSprite = kateSprite;
             character.Position = new Rectangle(10, 250, PLAYER_W, PLAYER_H);
             gameState = GameState.Menu;
-
             msState = Mouse.GetState();
             previousMsState = msState;
+
+            chairList = new List<Obstacles>();
 
             kbState = Keyboard.GetState();
             previousKbState = kbState;
@@ -129,7 +139,8 @@ namespace TunnelRunner
             norman = Content.Load<Texture2D>("norman");
             title = Content.Load<Texture2D>("title");
             ground = Content.Load<Texture2D>("ground");
-
+            healthBarThree = Content.Load<Texture2D>("3Life");
+            chair = Content.Load<Texture2D>("chair");
             spriteFont = Content.Load<SpriteFont>("SpriteFont1");
             // TODO: use this.Content to load your game content here
         }
@@ -242,9 +253,15 @@ namespace TunnelRunner
                     tunnelWall2.Draw(spriteBatch);
                     
                     spriteBatch.Draw(kateSprite, character.Position, new Rectangle(frame * PLAYER_W, 0, PLAYER_W, PLAYER_H),Color.White);
-                    spriteBatch.DrawString(spriteFont, "Health: " + character.Health, new Vector2(250.0f, 0.0f), Color.White);
+                    //spriteBatch.DrawString(spriteFont, "Health: " + character.Health, new Vector2(250.0f, 0.0f), Color.White); //change it to "leve #"
                     spriteBatch.Draw(ground, new Rectangle(0, 380, 700, 20), Color.White);
                     spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
+                    switch(character.Health)
+                    {
+                        case 3:
+                            spriteBatch.Draw(healthBarThree, new Rectangle(5, 1, 100, 20), Color.White);
+                            break;
+                    }
                     break;
                 case GameState.Options:
                     spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);

@@ -41,13 +41,14 @@ namespace TunnelRunner
         // Default constructor
         public Character()
         {
-
+            health = 3;
         }
 
         // Parameterized Character() constructor
         public Character(int x, int y, int width, int height)
         {
             position = new Rectangle(x, y, width, height);
+            health = 3;
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)
