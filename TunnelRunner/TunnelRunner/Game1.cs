@@ -126,6 +126,7 @@ namespace TunnelRunner
             norman = Content.Load<Texture2D>("norman");
             title = Content.Load<Texture2D>("title");
 
+            spriteFont = Content.Load<SpriteFont>("SpriteFont1");
             // TODO: use this.Content to load your game content here
         }
 
@@ -222,7 +223,7 @@ namespace TunnelRunner
                     tunnelWall2.Draw(spriteBatch);
                     
                     spriteBatch.Draw(kateSprite, character.Position, new Rectangle(frame * PLAYER_W, 0, PLAYER_W, PLAYER_H),Color.White);
-                    //spriteBatch.DrawString(spriteFont, "Health: " + character.Health, new Vector2(250.0f, 0f), Color.White);
+                    spriteBatch.DrawString(spriteFont, "Health: " + character.Health, new Vector2(250.0f, 0.0f), Color.White);
 
                     break;
             }
