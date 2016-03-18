@@ -28,6 +28,12 @@ namespace TunnelRunner
             get { return health; }
             set { health = value; }
         }
+
+        public int Level
+        {
+            get { return level; }
+            set { level = value; }
+        }
         public Texture2D CharacterSprite
         {
             get { return characterSprite; }

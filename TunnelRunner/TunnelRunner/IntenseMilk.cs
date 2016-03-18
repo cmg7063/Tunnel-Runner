@@ -11,7 +11,7 @@ namespace TunnelRunner
     class IntenseMilk : Collectibles
     {
         // Paramterized constructor
-        public IntenseMilk(int x, int y, int width, int height, bool active) : base(x, y, width, height)
+        public IntenseMilk(int x, int y, int width, int height, bool active) : base(x, y, width, height, active)
         {
         }
     }

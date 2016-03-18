@@ -9,7 +9,7 @@ namespace TunnelRunner
     class Obstacles : Collectibles
     {
         // Constructor
-        public Obstacles(int x,int y, int width, int height):base(x , y, width, height)
+        public Obstacles(int x,int y, int width, int height, bool active):base(x , y, width, height, active)
         {
 
         }

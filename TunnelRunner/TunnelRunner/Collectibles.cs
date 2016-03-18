@@ -27,11 +27,18 @@ namespace TunnelRunner
             set { position = value; }
         }
 
+        public bool Active
+        {
+            get { return active; }
+            set { active = value; }
+        }
+
         // Collectible parameterized constructor
-        public Collectibles(int x, int y, int width, int height)
+        public Collectibles(int x, int y, int width, int height, bool active)
         {
             // Set up the object's rectangle attribute
             position = new Rectangle(x, y, width, height);
+            this.active = active;
         }
 
         // A virtual method that Draws a spriteBatch object and can be overridden if need be
@@ -47,6 +54,7 @@ namespace TunnelRunner
         {
             if (active && Position.Intersects(character.Position))
             {
+                active = false;
                 return true;
             }
             else

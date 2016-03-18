@@ -70,6 +70,7 @@ namespace TunnelRunner
         KeyboardState previousKbState;
 
         List<Obstacles> chairList;
+        Obstacles chairOb;
 
         //animation stuff
         int frame;
@@ -114,6 +115,19 @@ namespace TunnelRunner
             base.Initialize();
         }
 
+        public void NextLevel()
+        {
+            chairList.Clear();
+            character.Level++;
+
+            Random rng = new Random();
+            for(int i = 0; i < character.Level * 2; i++)
+            {
+                chairOb = new Obstacles(rng.Next(0, 630), rng.Next(10, 200), 73, 100, true);
+                chairOb.CollectibleImage = chair;
+                chairList.Add(chairOb);
+            }
+        }
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
@@ -138,7 +152,7 @@ namespace TunnelRunner
             title = Content.Load<Texture2D>("title");
             ground = Content.Load<Texture2D>("ground");
             healthBarThree = Content.Load<Texture2D>("3Life");
-            //chair = Content.Load<Texture2D>("chair");
+            chair = Content.Load<Texture2D>("Obstacles/chair");
             spriteFont = Content.Load<SpriteFont>("SpriteFont1");
             // TODO: use this.Content to load your game content here
         }
@@ -169,6 +183,7 @@ namespace TunnelRunner
 
                     if (gameState == GameState.Playing)
                     {
+                        NextLevel();
                     }
                     break;
                 case GameState.CharacterSelection:
@@ -209,6 +224,16 @@ namespace TunnelRunner
                         character.Position = new Rectangle(character.Position.X, character.Position.Y + 3, PLAYER_W, PLAYER_H);
                     }
                     KeepOnScreen(character);
+                    //character.Level = 1;
+
+                    // Check for collisions between character and chairList
+                    foreach(Obstacles obstacle in chairList)
+                    {
+                        if (obstacle.CheckCollision(character))
+                        {
+                            //character.Health--;     // Finish switch statement for health 
+                        }
+                    }
 
                     break;
                 case GameState.Options:
@@ -251,9 +276,13 @@ namespace TunnelRunner
                     tunnelWall2.Draw(spriteBatch);
                     
                     spriteBatch.Draw(kateSprite, character.Position, new Rectangle(frame * PLAYER_W, 0, PLAYER_W, PLAYER_H),Color.White);
-                    //spriteBatch.DrawString(spriteFont, "Health: " + character.Health, new Vector2(250.0f, 0.0f), Color.White); //change it to "leve #"
+                    spriteBatch.DrawString(spriteFont, "Level: " + character.Level, new Vector2(250.0f, 0.0f), Color.White);
                     spriteBatch.Draw(ground, new Rectangle(0, 380, 700, 20), Color.White);
                     spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
+                    for (int i = 0; i < chairList.Count; i++)
+                    {
+                        chairList[i].Draw(spriteBatch);
+                    }
                     switch(character.Health)
                     {
                         case 3:

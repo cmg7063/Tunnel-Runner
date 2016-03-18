@@ -10,7 +10,7 @@ namespace TunnelRunner
     class SpeedBoost : Collectibles
     {
         // Paramterized constructor
-        public SpeedBoost(int x, int y, int width, int height, bool active) : base (x, y, width, height)
+        public SpeedBoost(int x, int y, int width, int height, bool active) : base (x, y, width, height, active)
         {
         }
     }
