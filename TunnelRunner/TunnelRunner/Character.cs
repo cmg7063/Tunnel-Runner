@@ -12,15 +12,16 @@ namespace TunnelRunner
     {
         // Attributes
         int health;
-        List<int> powerUp;
+        List<Collectibles> collected;
         Texture2D characterSprite;
         Rectangle position;
+        int level;
         
         // Properties
-        public List<int> PowerUp
+        public List<Collectibles> Collected
         {
-            get { return powerUp; }
-            set { powerUp = value; }
+            get { return collected; }
+            set { collected = value; }
         }
         public int Health
         {

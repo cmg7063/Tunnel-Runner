@@ -39,7 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Character.cs" />
-    <Compile Include="Collectible.cs" />
+    <Compile Include="Collectibles.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="IntenseMilk.cs" />
     <Compile Include="Obstacles.cs" />

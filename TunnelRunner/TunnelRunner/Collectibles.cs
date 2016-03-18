@@ -7,11 +7,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace TunnelRunner
 {
-    class Collectible
+    public class Collectibles
     {
         // Attributes
         Texture2D collectibleImage;
         Rectangle position;
+        bool active = true;
 
         // Properties
         public Texture2D CollectibleImage
@@ -27,7 +28,7 @@ namespace TunnelRunner
         }
 
         // Collectible parameterized constructor
-        public Collectible(int x, int y, int width, int height)
+        public Collectibles(int x, int y, int width, int height)
         {
             // Set up the object's rectangle attribute
             position = new Rectangle(x, y, width, height);
@@ -36,7 +37,22 @@ namespace TunnelRunner
         // A virtual method that Draws a spriteBatch object and can be overridden if need be
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(collectibleImage, position, Color.White);
+            if (active == true)
+            {
+                spriteBatch.Draw(collectibleImage, position, Color.White);
+            }
+        }
+
+        public bool CheckCollision(Character character)
+        {
+            if (active && Position.Intersects(character.Position))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
