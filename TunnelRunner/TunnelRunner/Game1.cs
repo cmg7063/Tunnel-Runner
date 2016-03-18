@@ -9,7 +9,7 @@ using System.Text;
 
 namespace TunnelRunner
 {
-    enum GameState {CharacterSelection, Options, Playing, Pause, Menu, Exit }
+    enum GameState {CharacterSelection, Options, Playing, Pause, Menu, Exit,GameOver }//game over state added
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
@@ -26,6 +26,8 @@ namespace TunnelRunner
         Texture2D loadingScreen;
         Texture2D title;
         Texture2D healthBarThree;
+        Texture2D healthBarTwo;
+        Texture2D healthBarOne;
         Texture2D chair; 
 
         // Tunnel walls
@@ -124,7 +126,7 @@ namespace TunnelRunner
             character.Level++;
 
             Random rng = new Random();
-            for(int i = 0; i < character.Level * 2; i++)
+            for(int i = 0; i < character.Level * 3; i++)
             {
                 chairOb = new Obstacles(rng.Next(300, 630), rng.Next(10, 200), 73, 100, true);//changed the start position for the chair so i can actually see if it is moving correctly
                 chairOb.CollectibleImage = chair;
@@ -155,6 +157,8 @@ namespace TunnelRunner
             title = Content.Load<Texture2D>("title");
             ground = Content.Load<Texture2D>("ground");
             healthBarThree = Content.Load<Texture2D>("3Life");
+            healthBarTwo = Content.Load<Texture2D>("2Life");
+            healthBarOne = Content.Load<Texture2D>("1Life");
             chair = Content.Load<Texture2D>("Obstacles/chair");
             spriteFont = Content.Load<SpriteFont>("SpriteFont1");
             // TODO: use this.Content to load your game content here
@@ -199,52 +203,61 @@ namespace TunnelRunner
                     previousMsState = msState;
                     break;
                 case GameState.Playing:
-                    msState = Mouse.GetState();
-                    if (previousMsState.LeftButton == ButtonState.Pressed && msState.LeftButton == ButtonState.Released)
+                    if (character.Health > 0)//game is only running when player is alive
                     {
-                        MouseClick(msState.X, msState.Y);
-                    }
-                    previousMsState = msState;
-                    // Scrolling backgrounds
-                    if (tunnelWall1.rectangle.X + tunnelWall1.tunnel.Width <= 0)
-                    {
-                        tunnelWall1.rectangle.X = tunnelWall2.rectangle.X + tunnelWall2.tunnel.Width;
-
-                    }
-                    if (tunnelWall2.rectangle.X + tunnelWall2.tunnel.Width <= 0)
-                    {
-                        tunnelWall2.rectangle.X = tunnelWall1.rectangle.X + tunnelWall1.tunnel.Width;
-                    }
-                    tunnelWall1.Update();
-                    tunnelWall2.Update();
-
-                    kbState = Keyboard.GetState();
-                    if (kbState.IsKeyDown(Keys.Up))
-                    {
-                        character.Position = new Rectangle(character.Position.X, character.Position.Y - 3, PLAYER_W, PLAYER_H);
-                    }
-                    if (kbState.IsKeyDown(Keys.Down))
-                    {
-                        character.Position = new Rectangle(character.Position.X, character.Position.Y + 3, PLAYER_W, PLAYER_H);
-                    }
-                    KeepOnScreen(character);
-                    //character.Level = 1;
-                    //moveing all collctibles on the screen with the same speed as the background
-                    for(int i=0;i<chairList.Count;i++)
-                    {
-                        chairList[i].Speed = tunnelWall1.movingSpeed;
-                        chairList[i].Moving();
-
-                    }
-                    // Check for collisions between character and chairList
-                    foreach(Obstacles obstacle in chairList)
-                    {
-                        if (obstacle.CheckCollision(character))
+                        msState = Mouse.GetState();
+                        if (previousMsState.LeftButton == ButtonState.Pressed && msState.LeftButton == ButtonState.Released)
                         {
-                            //character.Health--;     // Finish switch statement for health 
+                            MouseClick(msState.X, msState.Y);
+                        }
+                        previousMsState = msState;
+                        // Scrolling backgrounds
+                        if (tunnelWall1.rectangle.X + tunnelWall1.tunnel.Width <= 0)
+                        {
+                            tunnelWall1.rectangle.X = tunnelWall2.rectangle.X + tunnelWall2.tunnel.Width;
+
+                        }
+                        if (tunnelWall2.rectangle.X + tunnelWall2.tunnel.Width <= 0)
+                        {
+                            tunnelWall2.rectangle.X = tunnelWall1.rectangle.X + tunnelWall1.tunnel.Width;
+                        }
+                        tunnelWall1.Update();
+                        tunnelWall2.Update();
+
+                        kbState = Keyboard.GetState();
+                        if (kbState.IsKeyDown(Keys.Up))
+                        {
+                            character.Position = new Rectangle(character.Position.X, character.Position.Y - 3, PLAYER_W, PLAYER_H);
+                        }
+                        if (kbState.IsKeyDown(Keys.Down))
+                        {
+                            character.Position = new Rectangle(character.Position.X, character.Position.Y + 3, PLAYER_W, PLAYER_H);
+                        }
+                        KeepOnScreen(character);
+                        //character.Level = 1;
+                        //moveing all collctibles on the screen with the same speed as the background
+                        for (int i = 0; i < chairList.Count; i++)
+                        {
+                            chairList[i].Speed = tunnelWall1.movingSpeed;
+                            chairList[i].Moving();
+
+                        }
+                        // Check for collisions between character and chairList
+                        foreach (Obstacles obstacle in chairList)
+                        {
+                            if (character.Health >= 1)//only check for collision if player still have any lives
+                            {
+                                if (obstacle.CheckCollision(character))
+                                {
+                                    character.Health--;
+                                }
+                            }
                         }
                     }
-
+                    else
+                    {
+                        gameState = GameState.GameOver;
+                    }
                     break;
                 case GameState.Options:
                     msState = Mouse.GetState();
@@ -253,6 +266,15 @@ namespace TunnelRunner
                         MouseClick(msState.X, msState.Y);
                     }
                     previousMsState = msState;
+                    break;
+                case GameState.GameOver:
+                    msState = Mouse.GetState();
+                    if (previousMsState.LeftButton == ButtonState.Pressed && msState.LeftButton == ButtonState.Released)
+                    {
+                        MouseClick(msState.X, msState.Y);
+                    }
+                    previousMsState = msState;
+                    ResetGame();
                     break;
                 default:
                     break;
@@ -298,9 +320,19 @@ namespace TunnelRunner
                         case 3:
                             spriteBatch.Draw(healthBarThree, new Rectangle(5, 1, 100, 20), Color.White);
                             break;
+                        case 2:
+                            spriteBatch.Draw(healthBarTwo, new Rectangle(5, 1, 100, 20), Color.White);
+                            break;
+                        case 1:
+                            spriteBatch.Draw(healthBarOne, new Rectangle(5, 1, 100, 20), Color.White);
+                            break;
                     }
                     break;
                 case GameState.Options:
+                    spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
+                    break;
+                case GameState.GameOver:
+                    spriteBatch.DrawString(spriteFont, "GAME OVER", new Vector2(300, 150), Color.Red);
                     spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
                     break;
             }
@@ -368,6 +400,13 @@ namespace TunnelRunner
                     gameState = GameState.Menu;
                 }
             }
+            if (gameState == GameState.GameOver)
+            {
+                if (mouseClick.Intersects(menuButtRect))
+                {
+                    gameState = GameState.Menu;
+                }
+            }
         }
 
         private void KeepOnScreen(Character chara)
@@ -380,6 +419,12 @@ namespace TunnelRunner
             {
                 character.Position = new Rectangle(character.Position.X, 230, PLAYER_W, PLAYER_H);
             }
+        }
+        private void ResetGame()
+        {
+            chairList.Clear();
+            character.Health = 3;
+            character.Level = 0;
         }
     }
 }
