@@ -96,7 +96,7 @@ namespace TunnelRunner
             normanPos = new Vector2(350, (GraphicsDevice.Viewport.Height / 2) - 50);
             katePos = new Vector2(400, (GraphicsDevice.Viewport.Height / 2) - 50);
 
-            //there is 25 pix gap in between each button
+            // There is 25px gap in between each button
             titlePos = new Vector2(150, 0);
             startButtPos = new Vector2(12,300);
             charaSelButtPos = new Vector2(187, 300);
