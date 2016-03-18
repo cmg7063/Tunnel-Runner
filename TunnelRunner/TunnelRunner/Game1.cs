@@ -26,9 +26,7 @@ namespace TunnelRunner
         Texture2D loadingScreen;
         Texture2D title;
         Texture2D healthBarThree;
-        Texture2D chair;
-        
-        
+        Texture2D chair; 
 
         // Tunnel walls
         Scrolling tunnelWall1;

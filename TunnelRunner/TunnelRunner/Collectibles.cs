@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace TunnelRunner
 {
-    class Collectible
+    public class Collectibles
     {
         // Attributes
         Texture2D collectibleImage;
@@ -27,7 +27,7 @@ namespace TunnelRunner
         }
 
         // Collectible parameterized constructor
-        public Collectible(int x, int y, int width, int height)
+        public Collectibles(int x, int y, int width, int height)
         {
             // Set up the object's rectangle attribute
             position = new Rectangle(x, y, width, height);

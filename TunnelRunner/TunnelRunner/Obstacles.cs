@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace TunnelRunner
 {
-    class Obstacles:Collectible
+    class Obstacles:Collectibles
     {
         bool touched;
         public bool Touched

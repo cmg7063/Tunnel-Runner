@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TunnelRunner
 {
-    class SpeedBoost : Collectible
+    class SpeedBoost : Collectibles
     {
         // Attributes
         bool active = false;
