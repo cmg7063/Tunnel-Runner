@@ -112,6 +112,9 @@ namespace TunnelRunner
 
             kbState = Keyboard.GetState();
             previousKbState = kbState;
+
+            
+
             base.Initialize();
         }
 
@@ -123,7 +126,7 @@ namespace TunnelRunner
             Random rng = new Random();
             for(int i = 0; i < character.Level * 2; i++)
             {
-                chairOb = new Obstacles(rng.Next(0, 630), rng.Next(10, 200), 73, 100, true);
+                chairOb = new Obstacles(rng.Next(300, 630), rng.Next(10, 200), 73, 100, true);//changed the start position for the chair so i can actually see if it is moving correctly
                 chairOb.CollectibleImage = chair;
                 chairList.Add(chairOb);
             }
@@ -168,7 +171,7 @@ namespace TunnelRunner
                 Exit();
 
             // TODO: Add your update logic here
-            frameElapsed = (int)(gameTime.TotalGameTime.TotalMilliseconds / timePerFrame);
+            frameElapsed = (int)(gameTime.TotalGameTime.TotalMilliseconds / (0.7*timePerFrame)); //alter the # in front of "timePerFrame" to change the speed of the animation
             frame = frameElapsed % numFrames + 1;
 
             switch (gameState)
@@ -206,6 +209,7 @@ namespace TunnelRunner
                     if (tunnelWall1.rectangle.X + tunnelWall1.tunnel.Width <= 0)
                     {
                         tunnelWall1.rectangle.X = tunnelWall2.rectangle.X + tunnelWall2.tunnel.Width;
+
                     }
                     if (tunnelWall2.rectangle.X + tunnelWall2.tunnel.Width <= 0)
                     {
@@ -225,7 +229,13 @@ namespace TunnelRunner
                     }
                     KeepOnScreen(character);
                     //character.Level = 1;
+                    //moveing all collctibles on the screen with the same speed as the background
+                    for(int i=0;i<chairList.Count;i++)
+                    {
+                        chairList[i].Speed = tunnelWall1.movingSpeed;
+                        chairList[i].Moving();
 
+                    }
                     // Check for collisions between character and chairList
                     foreach(Obstacles obstacle in chairList)
                     {

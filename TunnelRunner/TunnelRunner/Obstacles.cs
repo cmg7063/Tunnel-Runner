@@ -11,7 +11,7 @@ namespace TunnelRunner
         // Constructor
         public Obstacles(int x,int y, int width, int height, bool active):base(x , y, width, height, active)
         {
-
+            
         }
     }
 }

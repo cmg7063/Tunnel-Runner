@@ -13,6 +13,7 @@ namespace TunnelRunner
         Texture2D collectibleImage;
         Rectangle position;
         bool active = true;
+        int speed;
 
         // Properties
         public Texture2D CollectibleImage
@@ -31,6 +32,11 @@ namespace TunnelRunner
         {
             get { return active; }
             set { active = value; }
+        }
+        public int Speed
+        {
+            get { return speed; }
+            set{ speed = value; }
         }
 
         // Collectible parameterized constructor
@@ -61,6 +67,10 @@ namespace TunnelRunner
             {
                 return false;
             }
+        }
+        public void Moving( )
+        {
+            position.X -= speed;
         }
     }
 }
