@@ -138,7 +138,7 @@ namespace TunnelRunner
             title = Content.Load<Texture2D>("title");
             ground = Content.Load<Texture2D>("ground");
             healthBarThree = Content.Load<Texture2D>("3Life");
-            chair = Content.Load<Texture2D>("chair");
+            //chair = Content.Load<Texture2D>("chair");
             spriteFont = Content.Load<SpriteFont>("SpriteFont1");
             // TODO: use this.Content to load your game content here
         }
