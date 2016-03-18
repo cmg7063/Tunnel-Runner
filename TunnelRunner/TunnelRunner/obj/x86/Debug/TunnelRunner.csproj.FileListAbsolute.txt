@@ -1,0 +1,27 @@
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\3Life.png
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\background.png
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Exit.png
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Menu.png
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\ground.png
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\kate.PNG
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\kateSprite.PNG
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\norman.png
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Options.png
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Selection.png
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Start.png
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Obstacles\chair.png
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\title.png
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Tunnel Walls\Wall1.JPG
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Tunnel Walls\Wall2.jpg
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\SpriteFont1.xnb
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\TunnelRunner.exe
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\TunnelRunner.pdb
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\MonoGame.Framework.dll
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\OpenTK.dll
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.exe
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.pdb
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.csprojResolveAssemblyReference.cache
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\background.xnb
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\buff.xnb
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\id.xnb
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\life.xnb

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>WindowsGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>Z:/TRv2/Tunnel-Runner/TunnelRunner/TunnelRunner/Content/background.png</File>
+    <File>Z:/TRv2/Tunnel-Runner/TunnelRunner/TunnelRunner/Content/buff.png</File>
+    <File>Z:/TRv2/Tunnel-Runner/TunnelRunner/TunnelRunner/Content/id.png</File>
+    <File>Z:/TRv2/Tunnel-Runner/TunnelRunner/TunnelRunner/Content/life.png</File>
+  </SourceFiles>
+</SourceFileCollection>
