@@ -9,28 +9,9 @@ namespace TunnelRunner
 {
     class SpeedBoost : Collectibles
     {
-        // Attributes
-        bool active = false;
-
-        // Properties
-        public bool Active
-        {
-            get { return active; }
-            set { active = value; }
-        }
-
         // Paramterized constructor
         public SpeedBoost(int x, int y, int width, int height, bool active) : base (x, y, width, height)
         {
-            this.active = active;
-        }
-
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            if (active)
-            {
-                spriteBatch.Draw(CollectibleImage, Position, Color.White);
-            }
         }
     }
 }

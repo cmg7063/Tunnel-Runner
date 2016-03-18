@@ -333,11 +333,11 @@ namespace TunnelRunner
 
         private void KeepOnScreen(Character chara)
         {
-            if(character.Position.Y<=25)
+            if(character.Position.Y <= 25)
             {
                 character.Position = new Rectangle(character.Position.X, 25, PLAYER_W, PLAYER_H);
             }
-            if(character.Position.Y>=230)
+            if(character.Position.Y >= 230)
             {
                 character.Position = new Rectangle(character.Position.X, 230, PLAYER_W, PLAYER_H);
             }

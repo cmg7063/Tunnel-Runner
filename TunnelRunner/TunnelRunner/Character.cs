@@ -15,6 +15,7 @@ namespace TunnelRunner
         List<Collectibles> collected;
         Texture2D characterSprite;
         Rectangle position;
+        int level;
         
         // Properties
         public List<Collectibles> Collected

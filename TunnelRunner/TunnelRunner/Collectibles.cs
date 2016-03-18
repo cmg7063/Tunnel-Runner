@@ -12,6 +12,7 @@ namespace TunnelRunner
         // Attributes
         Texture2D collectibleImage;
         Rectangle position;
+        bool active = true;
 
         // Properties
         public Texture2D CollectibleImage
@@ -36,7 +37,22 @@ namespace TunnelRunner
         // A virtual method that Draws a spriteBatch object and can be overridden if need be
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(collectibleImage, position, Color.White);
+            if (active == true)
+            {
+                spriteBatch.Draw(collectibleImage, position, Color.White);
+            }
+        }
+
+        public bool CheckCollision(Character character)
+        {
+            if (active && Position.Intersects(character.Position))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

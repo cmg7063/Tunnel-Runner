@@ -6,39 +6,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace TunnelRunner
 {
-    class Obstacles:Collectibles
+    class Obstacles : Collectibles
     {
-        bool touched;
-        public bool Touched
+        // Constructor
+        public Obstacles(int x,int y, int width, int height):base(x , y, width, height)
         {
-            get { return touched; }
-            set { touched = value; }
-        }
-        //constructor
-        public Obstacles(int x,int y, int width, int height):base(x,y,width,height)
-        {
-            touched = false;
-        }
-        public bool CheckCollision(Character chara)
-        {
-            if(touched==false)
-            {
-                if(Position.Intersects(chara.Position))
-                {
-                    touched = true;
-                    return true;
-                }
-                else
-                { return false; }
-            }
-            else { return false; }
-        }
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            if (touched == false)
-            {
-                base.Draw(spriteBatch);
-            }
+
         }
     }
 }
