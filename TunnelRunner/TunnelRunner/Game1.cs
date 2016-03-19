@@ -9,7 +9,7 @@ using System.Text;
 
 namespace TunnelRunner
 {
-    enum GameState {CharacterSelection, Options, Playing, Pause, Menu, Exit,GameOver }//game over state added
+    enum GameState {CharacterSelection, Options, Playing, Pause, Menu, Exit,GameOver,Resume }//game over state added
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
@@ -128,7 +128,7 @@ namespace TunnelRunner
             Random rng = new Random();
             for(int i = 0; i < character.Level * 3; i++)
             {
-                chairOb = new Obstacles(rng.Next(300, 630), rng.Next(10, 200), 73, 100, true);//changed the start position for the chair so i can actually see if it is moving correctly
+                chairOb = new Obstacles(rng.Next(300, 1200), rng.Next(10, 200), 73, 100, true);//changed the start position for the chair so i can actually see if it is moving correctly
                 chairOb.CollectibleImage = chair;
                 chairList.Add(chairOb);
             }
@@ -253,6 +253,13 @@ namespace TunnelRunner
                                 }
                             }
                         }
+                        //click 'space' to pause the game
+                        kbState = Keyboard.GetState();
+                        if(kbState.IsKeyDown(Keys.Space))
+                        {
+                            gameState = GameState.Pause;
+                        }
+                        previousKbState = kbState;
                     }
                     else
                     {
@@ -275,6 +282,14 @@ namespace TunnelRunner
                     }
                     previousMsState = msState;
                     ResetGame();
+                    break;
+                case GameState.Pause:
+                    tunnelWall1.movingSpeed = 0;
+                    tunnelWall2.movingSpeed = 0;
+                    break;
+
+                case GameState.Resume:
+                    
                     break;
                 default:
                     break;
@@ -334,6 +349,11 @@ namespace TunnelRunner
                 case GameState.GameOver:
                     spriteBatch.DrawString(spriteFont, "GAME OVER", new Vector2(300, 150), Color.Red);
                     spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
+                    break;
+                case GameState.Pause:
+                    tunnelWall1.Draw(spriteBatch);
+                    tunnelWall2.Draw(spriteBatch);
+
                     break;
             }
             spriteBatch.End();
