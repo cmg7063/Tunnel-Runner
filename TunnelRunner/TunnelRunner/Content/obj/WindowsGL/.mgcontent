@@ -4,9 +4,9 @@
   <Platform>WindowsGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Corinne Green/Desktop/GDAPS Projects/GDAPS II/Tunnel-Runner/TunnelRunner/TunnelRunner/Content/background.png</File>
-    <File>C:/Users/Corinne Green/Desktop/GDAPS Projects/GDAPS II/Tunnel-Runner/TunnelRunner/TunnelRunner/Content/buff.png</File>
-    <File>C:/Users/Corinne Green/Desktop/GDAPS Projects/GDAPS II/Tunnel-Runner/TunnelRunner/TunnelRunner/Content/id.png</File>
-    <File>C:/Users/Corinne Green/Desktop/GDAPS Projects/GDAPS II/Tunnel-Runner/TunnelRunner/TunnelRunner/Content/life.png</File>
+    <File>E:/C# HW/tunnelRunner/TunnelRunner/TunnelRunner/Content/background.png</File>
+    <File>E:/C# HW/tunnelRunner/TunnelRunner/TunnelRunner/Content/buff.png</File>
+    <File>E:/C# HW/tunnelRunner/TunnelRunner/TunnelRunner/Content/id.png</File>
+    <File>E:/C# HW/tunnelRunner/TunnelRunner/TunnelRunner/Content/life.png</File>
   </SourceFiles>
 </SourceFileCollection>

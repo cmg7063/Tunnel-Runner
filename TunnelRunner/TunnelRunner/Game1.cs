@@ -80,7 +80,7 @@ namespace TunnelRunner
         int frameElapsed;
         double timePerFrame = 100;
 
-       
+        int testing = 1;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -496,6 +496,20 @@ namespace TunnelRunner
                 }
             }
             if (gameState == GameState.GameOver)
+            {
+                if (mouseClick.Intersects(menuButtRect))
+                {
+                    gameState = GameState.Menu;
+                }
+            }
+            if(gameState==GameState.Pause)
+            {
+                if (mouseClick.Intersects(menuButtRect))
+                {
+                    gameState = GameState.Menu;
+                }
+            }
+            if(gameState==GameState.Resume)
             {
                 if (mouseClick.Intersects(menuButtRect))
                 {
