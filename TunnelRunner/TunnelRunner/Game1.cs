@@ -80,6 +80,7 @@ namespace TunnelRunner
         int frameElapsed;
         double timePerFrame = 100;
 
+       
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -124,7 +125,6 @@ namespace TunnelRunner
         {
             chairList.Clear();
             character.Level++;
-
             Random rng = new Random();
             for(int i = 0; i < character.Level * 3; i++)
             {
@@ -254,12 +254,10 @@ namespace TunnelRunner
                             }
                         }
                         //click 'space' to pause the game
-                        kbState = Keyboard.GetState();
-                        if(kbState.IsKeyDown(Keys.Space))
+                        if(SingleKeyPress(Keys.Space))
                         {
                             gameState = GameState.Pause;
                         }
-                        previousKbState = kbState;
                     }
                     else
                     {
@@ -284,12 +282,63 @@ namespace TunnelRunner
                     ResetGame();
                     break;
                 case GameState.Pause:
-                    tunnelWall1.movingSpeed = 0;
-                    tunnelWall2.movingSpeed = 0;
+                    /*--------------
+                    msState = Mouse.GetState();
+                    if (previousMsState.LeftButton == ButtonState.Pressed && msState.LeftButton == ButtonState.Released)
+                    {
+                        MouseClick(msState.X, msState.Y);
+                    }
+                    previousMsState = msState;
+                    //tunnelWall1.movingSpeed = 0;
+                    // tunnelWall2.movingSpeed = 0;
+                    Pause(tunnelWall1);
+                    Pause(tunnelWall2);
+                    kbState = Keyboard.GetState();
+                    if (kbState != previousKbState)
+                    {
+                        if (kbState.IsKeyDown(Keys.Space))
+                        {
+                            gameState = GameState.Resume;
+                        }
+                        previousKbState = kbState;
+                    }
+                    */
+                    timePerFrame = 0;
+                    msState = Mouse.GetState();
+                    if (previousMsState.LeftButton == ButtonState.Pressed && msState.LeftButton == ButtonState.Released)
+                    {
+                        MouseClick(msState.X, msState.Y);
+                    }
+                    previousMsState = msState;
+                    previousKbState = kbState;
+                    kbState = Keyboard.GetState();
+                    if(SingleKeyPress(Keys.Space))
+                    {
+                        Pause(tunnelWall1);
+                        Pause(tunnelWall2);
+                        gameState = GameState.Resume;
+                    }
                     break;
 
                 case GameState.Resume:
-                    
+                    timePerFrame = 100;
+                    msState = Mouse.GetState();
+                    if (previousMsState.LeftButton == ButtonState.Pressed && msState.LeftButton == ButtonState.Released)
+                    {
+                        MouseClick(msState.X, msState.Y);
+                    }
+                    previousMsState = msState;
+                    kbState = Keyboard.GetState();
+                    if(SingleKeyPress(Keys.Space))
+                    {
+                        gameState = GameState.Playing;
+                        Resume(tunnelWall1);
+                        Resume(tunnelWall2);
+                        msState = Mouse.GetState();
+                        
+                        
+                    }
+                    previousMsState = msState;
                     break;
                 default:
                     break;
@@ -321,7 +370,7 @@ namespace TunnelRunner
 
                     tunnelWall1.Draw(spriteBatch);
                     tunnelWall2.Draw(spriteBatch);
-                    
+                    //need a switch statement later, so that the sprite sheet can change
                     spriteBatch.Draw(kateSprite, character.Position, new Rectangle(frame * PLAYER_W, 0, PLAYER_W, PLAYER_H),Color.White);
                     spriteBatch.DrawString(spriteFont, "Level: " + character.Level, new Vector2(250.0f, 0.0f), Color.White);
                     spriteBatch.Draw(ground, new Rectangle(0, 380, 700, 20), Color.White);
@@ -354,6 +403,55 @@ namespace TunnelRunner
                     tunnelWall1.Draw(spriteBatch);
                     tunnelWall2.Draw(spriteBatch);
 
+                    spriteBatch.Draw(kateSprite, character.Position, new Rectangle(frame * PLAYER_W, 0, PLAYER_W, PLAYER_H), Color.White);
+                    spriteBatch.DrawString(spriteFont, "Level: " + character.Level, new Vector2(250.0f, 0.0f), Color.White);
+                    spriteBatch.Draw(ground, new Rectangle(0, 380, 700, 20), Color.White);
+                    spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
+                    for (int i = 0; i < chairList.Count; i++)
+                    {
+                        chairList[i].Draw(spriteBatch);
+                    }
+                    switch (character.Health)
+                    {
+                        case 3:
+                            spriteBatch.Draw(healthBarThree, new Rectangle(5, 1, 100, 20), Color.White);
+                            break;
+                        case 2:
+                            spriteBatch.Draw(healthBarTwo, new Rectangle(5, 1, 100, 20), Color.White);
+                            break;
+                        case 1:
+                            spriteBatch.Draw(healthBarOne, new Rectangle(5, 1, 100, 20), Color.White);
+                            break;
+                    }
+                    for (int i = 0; i < chairList.Count; i++)
+                    {
+                        chairList[i].Draw(spriteBatch);
+                    }
+                    break;
+                case GameState.Resume:
+                    tunnelWall1.Draw(spriteBatch);
+                    tunnelWall2.Draw(spriteBatch);
+                    //need a switch statement later, so that the sprite sheet can change
+                    spriteBatch.Draw(kateSprite, character.Position, new Rectangle(frame * PLAYER_W, 0, PLAYER_W, PLAYER_H), Color.White);
+                    spriteBatch.DrawString(spriteFont, "Level: " + character.Level, new Vector2(250.0f, 0.0f), Color.White);
+                    spriteBatch.Draw(ground, new Rectangle(0, 380, 700, 20), Color.White);
+                    spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
+                    for (int i = 0; i < chairList.Count; i++)
+                    {
+                        chairList[i].Draw(spriteBatch);
+                    }
+                    switch (character.Health)
+                    {
+                        case 3:
+                            spriteBatch.Draw(healthBarThree, new Rectangle(5, 1, 100, 20), Color.White);
+                            break;
+                        case 2:
+                            spriteBatch.Draw(healthBarTwo, new Rectangle(5, 1, 100, 20), Color.White);
+                            break;
+                        case 1:
+                            spriteBatch.Draw(healthBarOne, new Rectangle(5, 1, 100, 20), Color.White);
+                            break;
+                    }
                     break;
             }
             spriteBatch.End();
@@ -445,6 +543,39 @@ namespace TunnelRunner
             chairList.Clear();
             character.Health = 3;
             character.Level = 0;
+        }
+        
+        //overloading Pause method
+        private void Pause(Scrolling sub)
+        {
+            sub.movingSpeed = 0;
+            sub.rectangle.X = sub.preXpos;
+        }
+        private void Pause(Collectibles coll)//including obstacles
+        {
+            coll.Speed = 0;
+            coll.PreXpos = coll.Position.X;
+        }
+
+        private void Resume(Scrolling sub)
+        {
+            sub.movingSpeed = sub.preSpeed;
+        }
+        private void Resume(Collectibles coll)
+        {
+            coll.Speed = coll.PreSpeed;
+        }
+
+        public bool SingleKeyPress(Keys key)
+        {
+            if (kbState.IsKeyDown(key) && !previousKbState.IsKeyDown(key))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

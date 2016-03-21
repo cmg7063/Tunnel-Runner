@@ -14,6 +14,9 @@ namespace TunnelRunner
         Rectangle position;
         bool active = true;
         int speed;
+        int preXpos;
+
+        int preSpeed; //using for pause and resume
 
         // Properties
         public Texture2D CollectibleImage
@@ -38,6 +41,16 @@ namespace TunnelRunner
             get { return speed; }
             set{ speed = value; }
         }
+        public int PreSpeed
+        {
+            get { return preSpeed; }
+            set { preSpeed = value; }
+        }
+        public int PreXpos
+        {
+            get { return preXpos; }
+            set { preXpos = value; }
+        }
 
         // Collectible parameterized constructor
         public Collectibles(int x, int y, int width, int height, bool active)
@@ -45,6 +58,7 @@ namespace TunnelRunner
             // Set up the object's rectangle attribute
             position = new Rectangle(x, y, width, height);
             this.active = active;
+            preSpeed = speed;
         }
 
         // A virtual method that Draws a spriteBatch object and can be overridden if need be
@@ -71,6 +85,7 @@ namespace TunnelRunner
         public void Moving( )
         {
             position.X -= speed;
+            preXpos = position.X;
         }
     }
 }
