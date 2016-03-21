@@ -253,8 +253,8 @@ namespace TunnelRunner
                                 }
                             }
                         }
-                        //click 'space' to pause the game
-                        if(SingleKeyPress(Keys.Space))
+                        //click 'Enter' to pause the game
+                        if(SingleKeyPress(Keys.Enter))
                         {
                             gameState = GameState.Pause;
                         }
@@ -282,28 +282,7 @@ namespace TunnelRunner
                     ResetGame();
                     break;
                 case GameState.Pause:
-                    /*--------------
-                    msState = Mouse.GetState();
-                    if (previousMsState.LeftButton == ButtonState.Pressed && msState.LeftButton == ButtonState.Released)
-                    {
-                        MouseClick(msState.X, msState.Y);
-                    }
-                    previousMsState = msState;
-                    //tunnelWall1.movingSpeed = 0;
-                    // tunnelWall2.movingSpeed = 0;
-                    Pause(tunnelWall1);
-                    Pause(tunnelWall2);
-                    kbState = Keyboard.GetState();
-                    if (kbState != previousKbState)
-                    {
-                        if (kbState.IsKeyDown(Keys.Space))
-                        {
-                            gameState = GameState.Resume;
-                        }
-                        previousKbState = kbState;
-                    }
-                    */
-                    timePerFrame = 0;
+                    frame = 0;
                     msState = Mouse.GetState();
                     if (previousMsState.LeftButton == ButtonState.Pressed && msState.LeftButton == ButtonState.Released)
                     {
@@ -312,7 +291,7 @@ namespace TunnelRunner
                     previousMsState = msState;
                     previousKbState = kbState;
                     kbState = Keyboard.GetState();
-                    if(SingleKeyPress(Keys.Space))
+                    if(SingleKeyPress(Keys.Space))  // Press 'Space' to resume
                     {
                         Pause(tunnelWall1);
                         Pause(tunnelWall2);
@@ -334,9 +313,7 @@ namespace TunnelRunner
                         gameState = GameState.Playing;
                         Resume(tunnelWall1);
                         Resume(tunnelWall2);
-                        msState = Mouse.GetState();
-                        
-                        
+                        msState = Mouse.GetState();                        
                     }
                     previousMsState = msState;
                     break;

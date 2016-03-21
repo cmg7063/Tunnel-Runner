@@ -54,3 +54,32 @@ E:\C# HW\tunnelRunner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\OpenTK.dll
 E:\C# HW\tunnelRunner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.csprojResolveAssemblyReference.cache
 E:\C# HW\tunnelRunner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.exe
 E:\C# HW\tunnelRunner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.pdb
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\background.xnb
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\buff.xnb
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\id.xnb
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\life.xnb
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\1Life.png
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\2Life.png
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\3Life.png
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\background.png
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Exit.png
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Menu.png
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\ground.png
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\kate.PNG
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\kateSprite.PNG
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\norman.png
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Options.png
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Selection.png
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Start.png
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Obstacles\chair.png
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\title.png
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Tunnel Walls\Wall1.JPG
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Tunnel Walls\Wall2.jpg
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\SpriteFont1.xnb
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\TunnelRunner.exe
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\TunnelRunner.pdb
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\MonoGame.Framework.dll
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\OpenTK.dll
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.csprojResolveAssemblyReference.cache
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.exe
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.pdb
