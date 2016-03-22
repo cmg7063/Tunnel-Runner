@@ -83,3 +83,4 @@ C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunne
 C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.csprojResolveAssemblyReference.cache
 C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.exe
 C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.pdb
+E:\C# HW\tunnelRunner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\normanSprite.png

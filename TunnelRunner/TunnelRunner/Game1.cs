@@ -95,8 +95,8 @@ namespace TunnelRunner
             graphics.PreferredBackBufferHeight = 400;
 
             backgroundPos = new Vector2(0, 0);
-            normanPos = new Vector2(350, (GraphicsDevice.Viewport.Height / 2) - 50);
-            katePos = new Vector2(400, (GraphicsDevice.Viewport.Height / 2) - 50);
+            normanPos = new Vector2(500, 150);
+            katePos = new Vector2(100, 150);
 
             // There is 25px gap in between each button
             titlePos = new Vector2(150, 0);
@@ -105,7 +105,7 @@ namespace TunnelRunner
             optionButtPos = new Vector2( 362, 300);
             exitButtPos = new Vector2( 537, 300);
             character = new Character();
-            character.CharacterSprite = kateSprite;
+            //character.CharacterSprite = kateSprite; //default character
             character.Position = new Rectangle(10, 250, PLAYER_W, PLAYER_H);
             gameState = GameState.Menu;
             msState = Mouse.GetState();
@@ -161,6 +161,7 @@ namespace TunnelRunner
             healthBarOne = Content.Load<Texture2D>("1Life");
             chair = Content.Load<Texture2D>("Obstacles/chair");
             spriteFont = Content.Load<SpriteFont>("SpriteFont1");
+            normanSprite = Content.Load<Texture2D>("normanSprite");
             // TODO: use this.Content to load your game content here
         }
 
@@ -198,7 +199,6 @@ namespace TunnelRunner
                     if (previousMsState.LeftButton == ButtonState.Pressed && msState.LeftButton == ButtonState.Released)
                     {
                         MouseClick(msState.X, msState.Y);
-                        gameState = GameState.Playing;
                     }
                     previousMsState = msState;
                     break;
@@ -329,7 +329,7 @@ namespace TunnelRunner
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
-            switch(gameState)
+            switch (gameState)
             {
                 case GameState.Menu:
                     spriteBatch.Draw(background, backgroundPos, Color.White);
@@ -340,15 +340,13 @@ namespace TunnelRunner
                     spriteBatch.Draw(title, titlePos, Color.White);
                     break;
                 case GameState.CharacterSelection:
-                    spriteBatch.Draw(kate, new Vector2(50, 100), Color.White);
-                    spriteBatch.Draw(norman, new Vector2(484, 100), Color.White);
+                    spriteBatch.Draw(kate, new Vector2(katePos.X, katePos.Y), Color.White);
+                    spriteBatch.Draw(norman, new Vector2(normanPos.X, normanPos.Y), Color.White);
                     break;
                 case GameState.Playing:
-
                     tunnelWall1.Draw(spriteBatch);
                     tunnelWall2.Draw(spriteBatch);
-                    //need a switch statement later, so that the sprite sheet can change
-                    spriteBatch.Draw(kateSprite, character.Position, new Rectangle(frame * PLAYER_W, 0, PLAYER_W, PLAYER_H),Color.White);
+                    spriteBatch.Draw(character.CharacterSprite, character.Position, new Rectangle(frame * PLAYER_W, 0, PLAYER_W, PLAYER_H), Color.White);
                     spriteBatch.DrawString(spriteFont, "Level: " + character.Level, new Vector2(250.0f, 0.0f), Color.White);
                     spriteBatch.Draw(ground, new Rectangle(0, 380, 700, 20), Color.White);
                     spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
@@ -380,7 +378,7 @@ namespace TunnelRunner
                     tunnelWall1.Draw(spriteBatch);
                     tunnelWall2.Draw(spriteBatch);
 
-                    spriteBatch.Draw(kateSprite, character.Position, new Rectangle(frame * PLAYER_W, 0, PLAYER_W, PLAYER_H), Color.White);
+                    spriteBatch.Draw(character.CharacterSprite, character.Position, new Rectangle(frame * PLAYER_W, 0, PLAYER_W, PLAYER_H), Color.White);
                     spriteBatch.DrawString(spriteFont, "Level: " + character.Level, new Vector2(250.0f, 0.0f), Color.White);
                     spriteBatch.Draw(ground, new Rectangle(0, 380, 700, 20), Color.White);
                     spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
@@ -409,7 +407,7 @@ namespace TunnelRunner
                     tunnelWall1.Draw(spriteBatch);
                     tunnelWall2.Draw(spriteBatch);
                     //need a switch statement later, so that the sprite sheet can change
-                    spriteBatch.Draw(kateSprite, character.Position, new Rectangle(frame * PLAYER_W, 0, PLAYER_W, PLAYER_H), Color.White);
+                    spriteBatch.Draw(character.CharacterSprite, character.Position, new Rectangle(frame * PLAYER_W, 0, PLAYER_W, PLAYER_H), Color.White);
                     spriteBatch.DrawString(spriteFont, "Level: " + character.Level, new Vector2(250.0f, 0.0f), Color.White);
                     spriteBatch.Draw(ground, new Rectangle(0, 380, 700, 20), Color.White);
                     spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
@@ -475,10 +473,12 @@ namespace TunnelRunner
                 if (mouseClick.Intersects(normanRect))
                 {
                     character.CharacterSprite = normanSprite;
+                    gameState = GameState.Playing;
                 }
                 if (mouseClick.Intersects(kateRect))
                 {
                     character.CharacterSprite = kateSprite;
+                    gameState = GameState.Playing;
                 }
             }
             if(gameState==GameState.Playing)

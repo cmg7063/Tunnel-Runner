@@ -99,6 +99,9 @@
     <Content Include="Content\Buttons\Start.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\normanSprite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Obstacles\chair.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
