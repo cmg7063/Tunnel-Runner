@@ -76,7 +76,7 @@ namespace TunnelRunner
 
         //animation stuff
         int frame;
-        int numFrames = 4;
+        int numFrames = 5;
         int frameElapsed;
         double timePerFrame = 100;
 
@@ -175,7 +175,7 @@ namespace TunnelRunner
                 Exit();
 
             // TODO: Add your update logic here
-            frameElapsed = (int)(gameTime.TotalGameTime.TotalMilliseconds / (0.7*timePerFrame)); //alter the # in front of "timePerFrame" to change the speed of the animation
+            frameElapsed = (int)(gameTime.TotalGameTime.TotalMilliseconds / (timePerFrame)); //alter the # in front of "timePerFrame" to change the speed of the animation
             frame = frameElapsed % numFrames + 1;
 
             switch (gameState)
