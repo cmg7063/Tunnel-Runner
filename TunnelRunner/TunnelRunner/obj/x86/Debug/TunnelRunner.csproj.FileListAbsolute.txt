@@ -84,3 +84,35 @@ C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunne
 C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.exe
 C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.pdb
 E:\C# HW\tunnelRunner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\normanSprite.png
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\background.xnb
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\buff.xnb
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\id.xnb
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\life.xnb
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\1Life.png
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\2Life.png
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\3Life.png
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\background.png
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Exit.png
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Menu.png
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\ground.png
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\kate.PNG
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\kateSprite.PNG
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\norman.png
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Options.png
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Selection.png
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Start.png
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\normanSprite.png
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\title.png
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Tunnel Walls\Wall1.JPG
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Tunnel Walls\Wall2.jpg
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\SpriteFont1.xnb
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\TunnelRunner.exe
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\TunnelRunner.pdb
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\MonoGame.Framework.dll
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\OpenTK.dll
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.csprojResolveAssemblyReference.cache
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.exe
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.pdb
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Collectibles\ID Card.png
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Collectibles\INTENSE Milk.png
+Z:\IGMProfile\Documents\GDAPS\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Obstacles\chair.png

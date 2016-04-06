@@ -53,8 +53,9 @@ namespace TunnelRunner
         }
 
         // Collectible parameterized constructor
-        public Collectibles(int x, int y, int width, int height, bool active)
+        public Collectibles(int x, int y, int width, int height, bool active, Texture2D img)
         {
+            collectibleImage = img; //if all the powerups and ids are going to be collectibles, we need to set the image in the constructor
             // Set up the object's rectangle attribute
             position = new Rectangle(x, y, width, height);
             this.active = active;

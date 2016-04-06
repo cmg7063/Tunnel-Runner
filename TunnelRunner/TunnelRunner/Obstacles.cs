@@ -9,7 +9,7 @@ namespace TunnelRunner
     class Obstacles : Collectibles
     {
         // Constructor
-        public Obstacles(int x,int y, int width, int height, bool active):base(x , y, width, height, active)
+        public Obstacles(int x,int y, int width, int height, bool active, Texture2D img):base(x , y, width, height, active, img)
         {
             
         }

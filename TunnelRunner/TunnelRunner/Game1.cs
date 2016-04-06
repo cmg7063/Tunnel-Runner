@@ -28,7 +28,9 @@ namespace TunnelRunner
         Texture2D healthBarThree;
         Texture2D healthBarTwo;
         Texture2D healthBarOne;
-        Texture2D chair; 
+        Texture2D chair;
+        Texture2D milk;
+        Texture2D id;
 
         // Tunnel walls
         Scrolling tunnelWall1;
@@ -71,8 +73,12 @@ namespace TunnelRunner
         KeyboardState kbState;
         KeyboardState previousKbState;
 
+        List<Collectibles> collectibleList;
+        List<Collectibles> idList;
         List<Obstacles> chairList;
         Obstacles chairOb;
+        Collectibles idOb;
+        Collectibles collectOb;
 
         //animation stuff
         int frame;
@@ -112,6 +118,9 @@ namespace TunnelRunner
             previousMsState = msState;
 
             chairList = new List<Obstacles>();
+            idList = new List<Collectibles>();
+            collectibleList = new List<Collectibles>();
+
 
             kbState = Keyboard.GetState();
             previousKbState = kbState;
@@ -128,9 +137,19 @@ namespace TunnelRunner
             Random rng = new Random();
             for(int i = 0; i < character.Level * 3; i++)
             {
-                chairOb = new Obstacles(rng.Next(300, 1200), rng.Next(10, 200), 73, 100, true);//changed the start position for the chair so i can actually see if it is moving correctly
+                chairOb = new Obstacles(rng.Next(300, 1200), rng.Next(10, 200), 73, 100, true, chair);//changed the start position for the chair so i can actually see if it is moving correctly
                 chairOb.CollectibleImage = chair;
                 chairList.Add(chairOb);
+
+                //same thing for collectibles
+                collectOb = new Collectibles(rng.Next(300, 1200), rng.Next(10, 200), 73, 100, true, milk); //this will only generate milk -- to be changed when we add more collectibles
+                collectOb.CollectibleImage = milk;
+                collectibleList.Add(collectOb);
+
+                //and for ids
+                idOb = new Collectibles(rng.Next(300, 1200), rng.Next(10, 200), 73, 100, true, id);
+                collectOb.CollectibleImage = id;
+                idList.Add(idOb);
             }
         }
         protected override void LoadContent()
@@ -160,6 +179,8 @@ namespace TunnelRunner
             healthBarTwo = Content.Load<Texture2D>("2Life");
             healthBarOne = Content.Load<Texture2D>("1Life");
             chair = Content.Load<Texture2D>("Obstacles/chair");
+            milk = Content.Load<Texture2D>("Collectibles/INTENSE Milk");
+            id = Content.Load<Texture2D>("Collectibles/ID Card");
             spriteFont = Content.Load<SpriteFont>("SpriteFont1");
             normanSprite = Content.Load<Texture2D>("normanSprite");
             // TODO: use this.Content to load your game content here
@@ -241,6 +262,16 @@ namespace TunnelRunner
                             chairList[i].Speed = tunnelWall1.movingSpeed;
                             chairList[i].Moving();
 
+                        }
+                        for (int i = 0; i < collectibleList.Count; i++) //making collectibles
+                        {
+                            collectibleList[i].Speed = tunnelWall1.movingSpeed;
+                            collectibleList[i].Moving();
+                        }
+                        for (int i = 0; i < idList.Count; i++) //making ids move
+                        {
+                            idList[i].Speed = tunnelWall1.movingSpeed;
+                            idList[i].Moving();
                         }
                         // Check for collisions between character and chairList
                         foreach (Obstacles obstacle in chairList)
@@ -354,7 +385,15 @@ namespace TunnelRunner
                     {
                         chairList[i].Draw(spriteBatch);
                     }
-                    switch(character.Health)
+                    for (int i = 0; i < collectibleList.Count; i++)
+                    {
+                        collectibleList[i].Draw(spriteBatch);
+                    }
+                    for (int i = 0; i < idList.Count; i++)
+                    {
+                        idList[i].Draw(spriteBatch);
+                    }
+                    switch (character.Health)
                     {
                         case 3:
                             spriteBatch.Draw(healthBarThree, new Rectangle(5, 1, 100, 20), Color.White);
