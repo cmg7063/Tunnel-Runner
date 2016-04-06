@@ -125,7 +125,7 @@ namespace TunnelRunner
             kbState = Keyboard.GetState();
             previousKbState = kbState;
 
-            
+            character.Level = 0;
 
             base.Initialize();
         }
@@ -183,6 +183,8 @@ namespace TunnelRunner
             id = Content.Load<Texture2D>("Collectibles/ID Card");
             spriteFont = Content.Load<SpriteFont>("SpriteFont1");
             normanSprite = Content.Load<Texture2D>("normanSprite");
+
+            character.CharacterSprite = Content.Load<Texture2D>("kateSprite");//default sprite
             // TODO: use this.Content to load your game content here
         }
 
@@ -212,7 +214,7 @@ namespace TunnelRunner
 
                     if (gameState == GameState.Playing)
                     {
-                        NextLevel();
+                        ResetGame();
                     }
                     break;
                 case GameState.CharacterSelection:
@@ -503,6 +505,8 @@ namespace TunnelRunner
                 {
                     gameState = GameState.CharacterSelection;
                 }
+
+                ResetGame();
             }
             if (gameState == GameState.CharacterSelection)
             {
@@ -532,6 +536,7 @@ namespace TunnelRunner
                 if (mouseClick.Intersects(menuButtRect))
                 {
                     gameState = GameState.Menu;
+                    ResetGame();
                 }
             }
             if (gameState == GameState.GameOver)
@@ -546,6 +551,7 @@ namespace TunnelRunner
                 if (mouseClick.Intersects(menuButtRect))
                 {
                     gameState = GameState.Menu;
+                    ResetGame();
                 }
             }
             if(gameState==GameState.Resume)
@@ -553,6 +559,7 @@ namespace TunnelRunner
                 if (mouseClick.Intersects(menuButtRect))
                 {
                     gameState = GameState.Menu;
+                    ResetGame();
                 }
             }
         }
@@ -573,6 +580,7 @@ namespace TunnelRunner
             chairList.Clear();
             character.Health = 3;
             character.Level = 0;
+            NextLevel();
         }
         
         //overloading Pause method
