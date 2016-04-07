@@ -529,6 +529,7 @@ namespace TunnelRunner
                 if(mouseClick.Intersects(menuButtRect))
                 {
                     gameState = GameState.Menu;
+                    ResetGame();
                 }
             }
             if (gameState == GameState.Options)
@@ -578,6 +579,8 @@ namespace TunnelRunner
         private void ResetGame()
         {
             chairList.Clear();
+            idList.Clear();
+            collectibleList.Clear();
             character.Health = 3;
             character.Level = 0;
             NextLevel();
