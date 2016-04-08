@@ -137,18 +137,18 @@ namespace TunnelRunner
             Random rng = new Random();
             for(int i = 0; i < character.Level * 3; i++)
             {
-                chairOb = new Obstacles(rng.Next(300, 1200), rng.Next(10, 200), 73, 100, true, chair);//changed the start position for the chair so i can actually see if it is moving correctly
+                chairOb = new Obstacles(rng.Next(300, 1200), rng.Next(10, 200), 70, 90, true, chair);//changed the start position for the chair so i can actually see if it is moving correctly
                 chairOb.CollectibleImage = chair;
                 chairList.Add(chairOb);
 
                 //same thing for collectibles
-                collectOb = new Collectibles(rng.Next(300, 1200), rng.Next(10, 200), 73, 100, true, milk); //this will only generate milk -- to be changed when we add more collectibles
+                collectOb = new Collectibles(rng.Next(300, 1200), rng.Next(10, 200), 40, 67, true, milk); //this will only generate milk -- to be changed when we add more collectibles
                 collectOb.CollectibleImage = milk;
                 collectibleList.Add(collectOb);
 
                 //and for ids
-                idOb = new Collectibles(rng.Next(300, 1200), rng.Next(10, 200), 73, 100, true, id);
-                collectOb.CollectibleImage = id;
+                idOb = new Collectibles(rng.Next(300, 1200), rng.Next(10, 200), 40, 50, true, id);
+                idOb.CollectibleImage = id;
                 idList.Add(idOb);
             }
         }
