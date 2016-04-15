@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="Character.cs" />
     <Compile Include="Collectibles.cs" />
+    <Compile Include="Files.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Obstacles.cs" />
     <Compile Include="Program.cs" />
