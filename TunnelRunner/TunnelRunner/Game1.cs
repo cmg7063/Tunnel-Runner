@@ -133,6 +133,8 @@ namespace TunnelRunner
         public void NextLevel()
         {
             chairList.Clear();
+            collectibleList.Clear();
+            idList.Clear();
             character.Level++;
             Random rng = new Random();
             for(int i = 1; i <= character.Level * 3; i++)
@@ -287,8 +289,25 @@ namespace TunnelRunner
                                 }
                             }
                         }
+                        //milk adds health
+                        foreach (Collectibles collectible in collectibleList)
+                        {
+                            if (character.Health >= 1 && character.Health < 3) //only check if the character has 1 or 2 hearts
+                            {
+                                if (collectible.CheckCollision(character))
+                                {
+                                    character.Health++;
+                                }
+                            }
+                        }
+                        //id does... something
+                        foreach (Collectibles ids in idList)
+                        {
+                            //does jack right now
+                        }
+
                         //click 'Enter' to pause the game
-                        if(SingleKeyPress(Keys.Enter))
+                        if (SingleKeyPress(Keys.Enter))
                         {
                             gameState = GameState.Pause;
                         }
