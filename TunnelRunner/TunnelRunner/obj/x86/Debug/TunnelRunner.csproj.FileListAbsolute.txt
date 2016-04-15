@@ -180,3 +180,8 @@ E:\C# HW\TunnelRunner\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debu
 E:\C# HW\TunnelRunner\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.csprojResolveAssemblyReference.cache
 E:\C# HW\TunnelRunner\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.exe
 E:\C# HW\TunnelRunner\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.pdb
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\1Life.png
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\2Life.png
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\normanSprite.png
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Collectibles\ID Card.png
+Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Collectibles\INTENSE Milk.png

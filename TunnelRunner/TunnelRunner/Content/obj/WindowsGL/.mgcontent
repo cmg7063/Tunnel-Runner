@@ -4,9 +4,9 @@
   <Platform>WindowsGL</Platform>
   <Config />
   <SourceFiles>
-    <File>E:/C# HW/TunnelRunner/Tunnel-Runner/TunnelRunner/TunnelRunner/Content/background.png</File>
-    <File>E:/C# HW/TunnelRunner/Tunnel-Runner/TunnelRunner/TunnelRunner/Content/buff.png</File>
-    <File>E:/C# HW/TunnelRunner/Tunnel-Runner/TunnelRunner/TunnelRunner/Content/id.png</File>
-    <File>E:/C# HW/TunnelRunner/Tunnel-Runner/TunnelRunner/TunnelRunner/Content/life.png</File>
+    <File>Z:/TRv2/Tunnel-Runner/TunnelRunner/TunnelRunner/Content/background.png</File>
+    <File>Z:/TRv2/Tunnel-Runner/TunnelRunner/TunnelRunner/Content/buff.png</File>
+    <File>Z:/TRv2/Tunnel-Runner/TunnelRunner/TunnelRunner/Content/id.png</File>
+    <File>Z:/TRv2/Tunnel-Runner/TunnelRunner/TunnelRunner/Content/life.png</File>
   </SourceFiles>
 </SourceFileCollection>
