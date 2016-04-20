@@ -20,7 +20,6 @@ Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\MonoGame.Fra
 Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\OpenTK.dll
 Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.exe
 Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.pdb
-Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.csprojResolveAssemblyReference.cache
 Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\background.xnb
 Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\buff.xnb
 Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\id.xnb

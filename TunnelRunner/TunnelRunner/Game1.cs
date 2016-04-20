@@ -17,8 +17,9 @@ namespace TunnelRunner
         SpriteFont spriteFont;
 
         // Game assets
+        // Texture2D
         Character character;
-        Texture2D background;   // Background is referring to the menu background. Game background will be animated
+        //Texture2D background;   // Background is referring to the menu background. Game background will be animated
         Texture2D kate;
         Texture2D norman;
         Texture2D normanSprite;
@@ -36,15 +37,19 @@ namespace TunnelRunner
         Scrolling tunnelWall1;
         Scrolling tunnelWall2;
         
+        // Const ints
         const int PLAYER_W = 108;
         const int PLAYER_H = 150;
+        const int BUTT_W = 150;
+        const int BUTT_H = 50;
 
+        // Vector2
         Vector2 backgroundPos;
         Vector2 normanPos;
         Vector2 katePos;
         Vector2 titlePos;
 
-        // GameState button textures
+        // Texture2D GameState button textures
         Texture2D startButton;
         Texture2D exitButton;
         Texture2D charaSelButt;
@@ -54,10 +59,7 @@ namespace TunnelRunner
         Texture2D kateButton;
         Texture2D ground;
 
-        const int BUTT_W = 150;
-        const int BUTT_H = 75;
-
-        // GameState button positions
+        // Vector2 GameState button positions
         Vector2 startButtPos;
         Vector2 exitButtPos;
         Vector2 optionButtPos;
@@ -67,9 +69,11 @@ namespace TunnelRunner
 
         GameState gameState;
 
+        // Mouse state
         MouseState msState;
         MouseState previousMsState;
 
+        // Keyboard state
         KeyboardState kbState;
         KeyboardState previousKbState;
 
@@ -80,7 +84,7 @@ namespace TunnelRunner
         Collectibles idOb;
         Collectibles collectOb;
 
-        //animation stuff
+        // Animation stuff
         int frame;
         int numFrames = 5;
         int frameElapsed;
@@ -105,11 +109,11 @@ namespace TunnelRunner
             katePos = new Vector2(100, 150);
 
             // There is 25px gap in between each button
-            titlePos = new Vector2(150, 0);
-            startButtPos = new Vector2(12,300);
-            charaSelButtPos = new Vector2(187, 300);
-            optionButtPos = new Vector2( 362, 300);
-            exitButtPos = new Vector2( 537, 300);
+            titlePos = new Vector2(0, 0);
+            startButtPos = new Vector2(50, 200);
+            charaSelButtPos = new Vector2(50, 250);
+            optionButtPos = new Vector2( 50, 300);
+            exitButtPos = new Vector2(50, 350);
             character = new Character();
             //character.CharacterSprite = kateSprite; //default character
             character.Position = new Rectangle(10, 250, PLAYER_W, PLAYER_H);
@@ -172,7 +176,7 @@ namespace TunnelRunner
             exitButton = Content.Load<Texture2D>("Buttons/Exit");
             charaSelButt = Content.Load<Texture2D>("Buttons/Selection");
             menuButton = Content.Load<Texture2D>("Buttons/Menu");
-            background = Content.Load<Texture2D>("background");
+            //background = Content.Load<Texture2D>("background");
             kateSprite = Content.Load<Texture2D>("kateSprite");
             kate = Content.Load<Texture2D>("kate");
             norman = Content.Load<Texture2D>("norman");
@@ -385,12 +389,12 @@ namespace TunnelRunner
             switch (gameState)
             {
                 case GameState.Menu:
-                    spriteBatch.Draw(background, backgroundPos, Color.White);
+                    spriteBatch.Draw(title, titlePos, Color.White);
+                    //spriteBatch.Draw(background, backgroundPos, Color.White);
                     spriteBatch.Draw(startButton, startButtPos, Color.White);
                     spriteBatch.Draw(optionButton, optionButtPos, Color.White);
                     spriteBatch.Draw(charaSelButt, charaSelButtPos, Color.White);
-                    spriteBatch.Draw(exitButton, exitButtPos, Color.White);
-                    spriteBatch.Draw(title, titlePos, Color.White);
+                    spriteBatch.Draw(exitButton, exitButtPos, Color.White);                    
                     break;
                 case GameState.CharacterSelection:
                     spriteBatch.Draw(kate, new Vector2(katePos.X, katePos.Y), Color.White);
