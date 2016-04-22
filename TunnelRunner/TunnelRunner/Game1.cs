@@ -84,6 +84,10 @@ namespace TunnelRunner
         Collectibles idOb;
         Collectibles collectOb;
 
+        //score
+        int score;
+        double timer;
+
         // Animation stuff
         int frame;
         int numFrames = 5;
@@ -130,6 +134,7 @@ namespace TunnelRunner
             previousKbState = kbState;
 
             character.Level = 0;
+            score = 0;
 
             base.Initialize();
         }
@@ -208,6 +213,8 @@ namespace TunnelRunner
             // TODO: Add your update logic here
             frameElapsed = (int)(gameTime.TotalGameTime.TotalMilliseconds / (timePerFrame)); //alter the # in front of "timePerFrame" to change the speed of the animation
             frame = frameElapsed % numFrames + 1;
+
+            timer += gameTime.ElapsedGameTime.TotalMilliseconds;
 
             switch (gameState)
             {
@@ -290,6 +297,15 @@ namespace TunnelRunner
                                 if (obstacle.CheckCollision(character))
                                 {
                                     character.Health--;
+
+                                    if (score >= 50) //only removes 50 if there are 50 points to remove
+                                    {
+                                        score = score - 50;
+                                    }
+                                    else //otherwise sets score to 0. prevents score from going negative
+                                    {
+                                        score = 0;
+                                    }
                                 }
                             }
                         }
@@ -304,16 +320,24 @@ namespace TunnelRunner
                                 }
                             }
                         }
-                        //id does... something
+                        //id adds 50 to score
                         foreach (Collectibles ids in idList)
                         {
-                            //does jack right now
+                            if (ids.CheckCollision(character))
+                            {
+                                score = score + 50;
+                            }
                         }
 
                         //click 'Enter' to pause the game
                         if (SingleKeyPress(Keys.Enter))
                         {
                             gameState = GameState.Pause;
+                        }
+                        if (timer >= 2000) //if 1 second has passed
+                        {
+                            score += 10;
+                            timer -= 1000;
                         }
                     }
                     else
@@ -353,6 +377,10 @@ namespace TunnelRunner
                         Pause(tunnelWall1);
                         Pause(tunnelWall2);
                         gameState = GameState.Resume;
+                    }
+                    if (timer >= 2000) //if 1 second has passed
+                    {
+                        timer -= 2000;
                     }
                     break;
 
@@ -407,6 +435,7 @@ namespace TunnelRunner
                     spriteBatch.DrawString(spriteFont, "Level: " + character.Level, new Vector2(250.0f, 0.0f), Color.White);
                     spriteBatch.Draw(ground, new Rectangle(0, 380, 700, 20), Color.White);
                     spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
+                    spriteBatch.DrawString(spriteFont, "Score: " + score, new Vector2(50, 50), Color.White); //for testing score
                     for (int i = 0; i < chairList.Count; i++)
                     {
                         chairList[i].Draw(spriteBatch);
@@ -431,6 +460,7 @@ namespace TunnelRunner
                             spriteBatch.Draw(healthBarOne, new Rectangle(5, 1, 100, 20), Color.White);
                             break;
                     }
+
                     break;
                 case GameState.Options:
                     spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
@@ -447,6 +477,9 @@ namespace TunnelRunner
                     spriteBatch.DrawString(spriteFont, "Level: " + character.Level, new Vector2(250.0f, 0.0f), Color.White);
                     spriteBatch.Draw(ground, new Rectangle(0, 380, 700, 20), Color.White);
                     spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
+                    spriteBatch.DrawString(spriteFont, "Score: " + score, new Vector2(50, 50), Color.White);
+                    
+
                     for (int i = 0; i < chairList.Count; i++)
                     {
                         chairList[i].Draw(spriteBatch);

@@ -184,3 +184,35 @@ Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\2Lif
 Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\normanSprite.png
 Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Collectibles\ID Card.png
 Z:\TRv2\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Collectibles\INTENSE Milk.png
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\background.xnb
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\buff.xnb
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\id.xnb
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\life.xnb
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\1Life.png
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\2Life.png
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\3Life.png
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\background.png
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Exit.png
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Menu.png
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\ground.png
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\kate.PNG
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\kateSprite.PNG
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\norman.png
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Options.png
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Selection.png
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Start.png
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\normanSprite.png
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Obstacles\chair.png
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Collectibles\ID Card.png
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Collectibles\INTENSE Milk.png
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\title.png
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Tunnel Walls\Wall1.JPG
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Tunnel Walls\Wall2.jpg
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\SpriteFont1.xnb
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\TunnelRunner.exe
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\TunnelRunner.pdb
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\MonoGame.Framework.dll
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\OpenTK.dll
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.csprojResolveAssemblyReference.cache
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.exe
+C:\Users\Katherine\Documents\GitHub\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.pdb
