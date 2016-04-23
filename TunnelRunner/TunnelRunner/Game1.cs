@@ -148,20 +148,20 @@ namespace TunnelRunner
             idList.Clear();
             character.Level++;
             Random rng = new Random();
-            for(int i = 1; i <= character.Level * 3; i++)
+            for(int i = 1; i <= character.Level * character.Level * 300; i++)
             {
 
                 chairOb = new Obstacles(rng.Next((i-1)* (frequency - 2 * character.Level), i*(frequency-2*character.Level)), rng.Next(10, 200), 70, 90, true, chair);//changed the start position for the chair so i can actually see if it is moving correctly
                 chairOb.CollectibleImage = chair;
                 chairList.Add(chairOb);
-
-                //same thing for collectibles
-                collectOb = new Collectibles(rng.Next((i - 1) * 700, i * 700), rng.Next(10, 200), 40, 67, true, milk); //this will only generate milk -- to be changed when we add more collectibles
+            }
+            for(int i = 1; i <= character.Level * 300; i++)
+            {
+                collectOb = new Collectibles(rng.Next((i - 1) * 700, i * 700), rng.Next(10, 200), 70, 70, true, milk); //this will only generate milk -- to be changed when we add more collectibles
                 collectOb.CollectibleImage = milk;
                 collectibleList.Add(collectOb);
 
-                //and for ids
-                idOb = new Collectibles(rng.Next((i - 1) * 700, i * 700), rng.Next(10, 200), 40, 50, true, id);
+                idOb = new Collectibles(rng.Next((i - 1) * 700, i * 700), rng.Next(10, 200), 50, 50, true, id);
                 idOb.CollectibleImage = id;
                 idList.Add(idOb);
             }
@@ -341,6 +341,10 @@ namespace TunnelRunner
                             score += 10;
                             timer -= 1000;
                         }
+                        if (score >= character.Level * 300)
+                        {
+                            NextLevel();
+                        }
                     }
                     else
                     {
@@ -488,6 +492,15 @@ namespace TunnelRunner
                     {
                         chairList[i].Draw(spriteBatch);
                     }
+                    for (int i = 0; i < collectibleList.Count; i++) //makes collectibles display while game is paused
+                    {
+                        collectibleList[i].Draw(spriteBatch);
+                    }
+                    for (int i = 0; i < idList.Count; i++) //makes ids display while game is paused
+                    {
+                        idList[i].Draw(spriteBatch);
+                    }
+
                     switch (character.Health)
                     {
                         case 3:
@@ -500,10 +513,6 @@ namespace TunnelRunner
                             spriteBatch.Draw(healthBarOne, new Rectangle(5, 1, 100, 20), Color.White);
                             break;
                     }
-                    for (int i = 0; i < chairList.Count; i++)
-                    {
-                        chairList[i].Draw(spriteBatch);
-                    }
                     break;
                 case GameState.Resume:
                     tunnelWall1.Draw(spriteBatch);
@@ -513,10 +522,20 @@ namespace TunnelRunner
                     spriteBatch.DrawString(spriteFont, "Level: " + character.Level, new Vector2(250.0f, 0.0f), Color.White);
                     spriteBatch.Draw(ground, new Rectangle(0, 380, 700, 20), Color.White);
                     spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
+
                     for (int i = 0; i < chairList.Count; i++)
                     {
                         chairList[i].Draw(spriteBatch);
                     }
+                    for (int i = 0; i < collectibleList.Count; i++)
+                    {
+                        collectibleList[i].Draw(spriteBatch);
+                    }
+                    for (int i = 0; i < idList.Count; i++)
+                    {
+                        idList[i].Draw(spriteBatch);
+                    }
+
                     switch (character.Health)
                     {
                         case 3:
