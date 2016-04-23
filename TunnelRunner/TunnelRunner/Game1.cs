@@ -87,6 +87,7 @@ namespace TunnelRunner
         //score
         int score;
         double timer;
+        int frequency = 700;
 
         // Animation stuff
         int frame;
@@ -149,7 +150,7 @@ namespace TunnelRunner
             for(int i = 1; i <= character.Level * 3; i++)
             {
 
-                chairOb = new Obstacles(rng.Next((i-1)*700, i*700), rng.Next(10, 200), 70, 90, true, chair);//changed the start position for the chair so i can actually see if it is moving correctly
+                chairOb = new Obstacles(rng.Next((i-1)* (frequency - 2 * character.Level), i*(frequency-2*character.Level)), rng.Next(10, 200), 70, 90, true, chair);//changed the start position for the chair so i can actually see if it is moving correctly
                 chairOb.CollectibleImage = chair;
                 chairList.Add(chairOb);
 
