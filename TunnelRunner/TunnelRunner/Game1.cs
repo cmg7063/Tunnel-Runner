@@ -119,7 +119,7 @@ namespace TunnelRunner
             optionButtPos = new Vector2( 50, 300);
             exitButtPos = new Vector2(50, 350);
             character = new Character();
-            //character.CharacterSprite = kateSprite; //default character
+
             character.Position = new Rectangle(10, 250, PLAYER_W, PLAYER_H);
             gameState = GameState.Menu;
             msState = Mouse.GetState();
@@ -425,6 +425,7 @@ namespace TunnelRunner
                     spriteBatch.Draw(exitButton, exitButtPos, Color.White);                    
                     break;
                 case GameState.CharacterSelection:
+                    spriteBatch.Draw(title, titlePos, Color.White);
                     spriteBatch.Draw(kate, new Vector2(katePos.X, katePos.Y), Color.White);
                     spriteBatch.Draw(norman, new Vector2(normanPos.X, normanPos.Y), Color.White);
                     break;
@@ -466,6 +467,7 @@ namespace TunnelRunner
                     spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
                     break;
                 case GameState.GameOver:
+                    spriteBatch.Draw(title, titlePos, Color.White);
                     spriteBatch.DrawString(spriteFont, "GAME OVER", new Vector2(300, 150), Color.Red);
                     spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
                     break;
@@ -535,14 +537,15 @@ namespace TunnelRunner
         // Handle click events
         public void MouseClick(int x, int y)
         {
+            bool sel = false;//for testing purpose
             Rectangle mouseClick = new Rectangle(x, y, 10, 10);
             Rectangle menuButtRect = new Rectangle(630, 1, 60, 20);
             if (gameState == GameState.Menu)
             {
-                Rectangle startButtonRect = new Rectangle((int)startButtPos.X, (int)startButtPos.Y, BUTT_W, BUTT_H);
-                Rectangle exitButtonRect = new Rectangle((int)exitButtPos.X, (int)exitButtPos.Y, BUTT_W, BUTT_H);
-                Rectangle optionButtonRect = new Rectangle((int)optionButtPos.X, (int)optionButtPos.Y, BUTT_W, BUTT_H);
-                Rectangle charaSelButtRect = new Rectangle((int)charaSelButtPos.X, (int)charaSelButtPos.Y, BUTT_W, BUTT_H);
+                Rectangle startButtonRect = new Rectangle((int)startButtPos.X, (int)startButtPos.Y, 112, 35);
+                Rectangle exitButtonRect = new Rectangle((int)exitButtPos.X, (int)exitButtPos.Y, 76, 35);
+                Rectangle optionButtonRect = new Rectangle((int)optionButtPos.X, (int)optionButtPos.Y, 140, 36);
+                Rectangle charaSelButtRect = new Rectangle((int)charaSelButtPos.X, (int)charaSelButtPos.Y, 180, 36);
                 
                 if (mouseClick.Intersects(startButtonRect))
                 {
@@ -561,6 +564,7 @@ namespace TunnelRunner
                 if (mouseClick.Intersects(charaSelButtRect))
                 {
                     gameState = GameState.CharacterSelection;
+                    sel = true;
                 }
 
                 ResetGame();

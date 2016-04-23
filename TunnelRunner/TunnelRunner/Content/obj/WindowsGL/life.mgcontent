@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Katherine/Documents/GitHub/Tunnel-Runner/TunnelRunner/TunnelRunner/Content/life.png</SourceFile>
-  <SourceTime>2016-04-15T13:37:50.5548946-04:00</SourceTime>
-  <DestFile>C:/Users/Katherine/Documents/GitHub/Tunnel-Runner/TunnelRunner/TunnelRunner/Content/bin/WindowsGL/life.xnb</DestFile>
-  <DestTime>2016-04-22T12:05:38.887106-04:00</DestTime>
+  <SourceFile>E:/C# HW/TunnelRunner/Tunnel-Runner/TunnelRunner/TunnelRunner/Content/life.png</SourceFile>
+  <SourceTime>2016-04-06T19:55:19.3858479-04:00</SourceTime>
+  <DestFile>E:/C# HW/TunnelRunner/Tunnel-Runner/TunnelRunner/TunnelRunner/Content/bin/WindowsGL/life.xnb</DestFile>
+  <DestTime>2016-04-22T22:20:19.2746518-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2015-04-29T13:14:44-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
