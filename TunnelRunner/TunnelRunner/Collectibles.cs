@@ -51,7 +51,10 @@ namespace TunnelRunner
             get { return preXpos; }
             set { preXpos = value; }
         }
+        public Collectibles()
+        {
 
+        }
         // Collectible parameterized constructor
         public Collectibles(int x, int y, int width, int height, bool active, Texture2D img)
         {

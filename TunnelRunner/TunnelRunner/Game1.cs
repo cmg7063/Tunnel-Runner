@@ -80,6 +80,7 @@ namespace TunnelRunner
         List<Collectibles> collectibleList;
         List<Collectibles> idList;
         List<Obstacles> chairList;
+
         Obstacles chairOb;
         Collectibles idOb;
         Collectibles collectOb;
