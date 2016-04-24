@@ -7,8 +7,8 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace TunnelRunner
 {        
-    // this class will use data fron Files (fileInfo) to populate all lists
-    //to access fileInfo[0][0]  <------this is the first item in first level which would be what number of the level is
+    // This class uses data fron Files() (fileInfo) to populate all lists
+    // To access, fileInfo[0][0]  <--- This is the first item in first level which would be what number of the level is
     class Levels
     {
         //attributes
