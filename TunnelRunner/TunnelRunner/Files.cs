@@ -11,7 +11,6 @@ namespace TunnelRunner
         int numFiles = 0;
         List<int[]> fileInfo = new List<int[]>();
         int content; //what's in that line of a file
-        int[] data = new int[7];
 
         //properties
         public List<int[]> FileInfo
@@ -33,6 +32,7 @@ namespace TunnelRunner
                 //sort the files, so levels load in in order
                 for (int i = 1; i <= numFiles; i++)
                 {
+                    int[] data = new int[6];
                     int lineNum = 0;
                     StreamReader read = new StreamReader(File.OpenRead("level" + i + ".txt"));
                     string line = "";

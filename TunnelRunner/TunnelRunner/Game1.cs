@@ -96,6 +96,10 @@ namespace TunnelRunner
         int frameElapsed;
         double timePerFrame = 100;
 
+        //level class
+        Levels currLvl = new Levels();
+        Random rgn = new Random();
+
         int testing = 1;
         public Game1()
         {
@@ -138,12 +142,46 @@ namespace TunnelRunner
             character.Level = 0;
             score = 0;
 
+            currLvl.Populate();
+            currLvl.LoadLevels();
+            currLvl.IdImg = id;
+            currLvl.ObsImg = chair;
+            currLvl.MilkImg = milk;
+
             base.Initialize();
         }
 
         public void NextLevel()
         {
             chairList.Clear();
+            idList.Clear();
+            collectibleList.Clear();
+
+            character.Level++;
+
+            currLvl.GetLvl(character.Level);
+
+            if (character.Level > 0)
+            
+            for (int l = 1; l <= currLvl.LvlList[character.Level-1].Obst; l++)
+            {
+                chairOb = new Obstacles(rgn.Next((l - 1) * (frequency - character.Level * 2), l * (frequency - character.Level * 2)), rgn.Next(10, 300), 70, 90, true, chair);
+                chairOb.CollectibleImage = chair;
+               chairList.Add(chairOb);
+            }
+            for (int l = 1; l <= currLvl.LvlList[character.Level - 1].IntenseMilk; l++)
+            {
+                collectOb = new Collectibles(rgn.Next((l - 1) * (frequency - character.Level * 2), l * (frequency - character.Level * 2)), rgn.Next(10, 300), 70, 90, true, milk);
+                collectOb.CollectibleImage = milk;
+                collectibleList.Add(collectOb);
+            }
+            for (int l = 1; l <= currLvl.LvlList[character.Level - 1].Ids; l++)
+            {
+                idOb = new Collectibles(rgn.Next((l - 1) * (frequency - character.Level * 2), l * (frequency - character.Level * 2)), rgn.Next(10, 300), 70, 90, true, id);
+                idOb.CollectibleImage = id;
+                idList.Add(idOb);
+            }
+            /*chairList.Clear();
             collectibleList.Clear();
             idList.Clear();
             character.Level++;
@@ -164,7 +202,7 @@ namespace TunnelRunner
                 idOb = new Collectibles(rng.Next((i - 1) * 700, i * 700), rng.Next(10, 200), 50, 50, true, id);
                 idOb.CollectibleImage = id;
                 idList.Add(idOb);
-            }
+            }*/
         }
         protected override void LoadContent()
         {
@@ -221,19 +259,16 @@ namespace TunnelRunner
             switch (gameState)
             {
                 case GameState.Menu:
+                    character.Level = 0;
                     msState = Mouse.GetState();
                     if (previousMsState.LeftButton == ButtonState.Pressed && msState.LeftButton == ButtonState.Released)
                     {
                         MouseClick(msState.X, msState.Y);
                     }
                     previousMsState = msState;
-
-                    if (gameState == GameState.Playing)
-                    {
-                        ResetGame();
-                    }
                     break;
                 case GameState.CharacterSelection:
+                    
                     msState = Mouse.GetState();
                     if (previousMsState.LeftButton == ButtonState.Pressed && msState.LeftButton == ButtonState.Released)
                     {
@@ -279,7 +314,6 @@ namespace TunnelRunner
                         {
                             chairList[i].Speed = tunnelWall1.movingSpeed;
                             chairList[i].Moving();
-
                         }
                         for (int i = 0; i < collectibleList.Count; i++) //making collectibles
                         {
@@ -299,7 +333,6 @@ namespace TunnelRunner
                                 if (obstacle.CheckCollision(character))
                                 {
                                     character.Health--;
-
                                     if (score >= 50) //only removes 50 if there are 50 points to remove
                                     {
                                         score = score - 50;
@@ -338,13 +371,11 @@ namespace TunnelRunner
                         }
                         if (timer >= 2000) //if 1 second has passed
                         {
-                            score += 10;
+                            score += 2;
                             timer -= 1000;
                         }
-                        if (score >= character.Level * 300)
-                        {
-                            NextLevel();
-                        }
+                        if(chairList[chairList.Count-1].Active==false)
+                        { NextLevel(); }
                     }
                     else
                     {
@@ -366,7 +397,6 @@ namespace TunnelRunner
                         MouseClick(msState.X, msState.Y);
                     }
                     previousMsState = msState;
-                    ResetGame();
                     break;
                 case GameState.Pause:
                     frame = 0;
@@ -443,7 +473,7 @@ namespace TunnelRunner
                     spriteBatch.Draw(ground, new Rectangle(0, 380, 700, 20), Color.White);
                     spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
                     spriteBatch.DrawString(spriteFont, "Score: " + score, new Vector2(50, 50), Color.White); //for testing score
-                    for (int i = 0; i < chairList.Count; i++)
+                    for (int i = 0; i <chairList.Count; i++)
                     {
                         chairList[i].Draw(spriteBatch);
                     }
@@ -451,7 +481,7 @@ namespace TunnelRunner
                     {
                         collectibleList[i].Draw(spriteBatch);
                     }
-                    for (int i = 0; i < idList.Count; i++)
+                    for (int i = 0; i <idList.Count; i++)
                     {
                         idList[i].Draw(spriteBatch);
                     }
@@ -496,7 +526,7 @@ namespace TunnelRunner
                     {
                         collectibleList[i].Draw(spriteBatch);
                     }
-                    for (int i = 0; i < idList.Count; i++) //makes ids display while game is paused
+                    for (int i = 0; i <idList.Count; i++) //makes ids display while game is paused
                     {
                         idList[i].Draw(spriteBatch);
                     }
@@ -527,11 +557,11 @@ namespace TunnelRunner
                     {
                         chairList[i].Draw(spriteBatch);
                     }
-                    for (int i = 0; i < collectibleList.Count; i++)
+                    for (int i = 0; i < collectibleList.Count; i++) 
                     {
                         collectibleList[i].Draw(spriteBatch);
                     }
-                    for (int i = 0; i < idList.Count; i++)
+                    for (int i = 0; i < idList.Count; i++) 
                     {
                         idList[i].Draw(spriteBatch);
                     }
@@ -571,7 +601,7 @@ namespace TunnelRunner
                 if (mouseClick.Intersects(startButtonRect))
                 {
                     gameState = GameState.Playing;
-
+                    NextLevel();
                 }
                 if (mouseClick.Intersects(optionButtonRect))
                 {
@@ -587,8 +617,7 @@ namespace TunnelRunner
                     gameState = GameState.CharacterSelection;
                     sel = true;
                 }
-
-                ResetGame();
+                
             }
             if (gameState == GameState.CharacterSelection)
             {
@@ -598,11 +627,15 @@ namespace TunnelRunner
                 if (mouseClick.Intersects(normanRect))
                 {
                     character.CharacterSprite = normanSprite;
+                    ResetGame();
+                    NextLevel();
                     gameState = GameState.Playing;
                 }
                 if (mouseClick.Intersects(kateRect))
                 {
                     character.CharacterSprite = kateSprite;
+                    ResetGame();
+                    NextLevel();
                     gameState = GameState.Playing;
                 }
             }
@@ -627,6 +660,7 @@ namespace TunnelRunner
                 if (mouseClick.Intersects(menuButtRect))
                 {
                     gameState = GameState.Menu;
+                    ResetGame();
                 }
             }
             if(gameState==GameState.Pause)
@@ -665,6 +699,7 @@ namespace TunnelRunner
             collectibleList.Clear();
             character.Health = 3;
             character.Level = 0;
+            score = 0;
             NextLevel();
         }
         

@@ -90,6 +90,10 @@ namespace TunnelRunner
         {
             position.X -= speed;
             preXpos = position.X;
+            if(position.X<=0)
+            {
+                active = false;
+            }
         }
     }
 }

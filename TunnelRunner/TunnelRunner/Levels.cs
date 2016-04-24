@@ -20,13 +20,15 @@ namespace TunnelRunner
         int obst;
         int ids;
 
+        int frequency = 700;
+
         Texture2D speedImg;
         Texture2D milkImg;
         Texture2D invincImg;
         Texture2D idImg;
+        Texture2D obsImg;
 
-
-        List<Levels> lvlList;
+        List<Levels> lvlList = new List<Levels>();
 
         List<Collectibles> speedList;
         List<Collectibles> milkList;
@@ -34,74 +36,107 @@ namespace TunnelRunner
         List<Collectibles> idList;
         List<Obstacles> obstList;
 
-        Collectibles collectible;
+        Collectibles collObj;
         Obstacles obstObj;
 
-        public Levels()
-        {
+        Random rgn = new Random();
 
+        //properties
+        public List<Levels> LvlList
+        {
+            get { return lvlList; }
+        }
+        public int Currlvl
+        {
+            get { return currlvl; }
+            set { currlvl = value; }
+        }
+        public int Obst
+        {
+            get { return obst; }
+        }
+        public int IntenseMilk
+        { get { return intenseMilk; } }
+
+        public int Ids
+        { get { return ids; } }
+
+        public Texture2D SpeedImg
+        {
+            get { return speedImg; }
+            set { speedImg = value; }
+        }
+        public Texture2D MilkImg
+        {
+            get { return milkImg; }
+            set { milkImg = value; }
+        }
+
+        public Texture2D InvincImg
+        {
+            get { return invincImg; }
+            set { invincImg = value; }
+        }
+
+        public Texture2D IdImg
+        {
+            get { return idImg; }
+            set { idImg = value; }
+        }
+        public Texture2D ObsImg
+        {
+            get { return obsImg; }
+            set { obsImg = value; }
+        }
+
+        //constructor
+        public Levels( )
+        {
+            currlvl = 0;
+            speedboost = 0;
+            intenseMilk = 0;
+            invincibility = 0;
+            obst = 0;
+            ids = 0;
         }
 
         public void Populate()
         {
             allLevel.LoadAllFile();
+            
         }
 
         public void LoadLevels()
         {
             for (int i = 0; i < 90; i++) // Make a Length() property in Files to get the amount of files w/ "level" in name
             {
-                // Within each level in the list of Levels, populate individual collectible and obst. lists
-                foreach (Levels level in lvlList)
-                {
-                    // Populate level list
-                    currlvl = allLevel.FileInfo[i][0];
+                Levels myLvl = new Levels();
+                // Populate level list
+                myLvl.currlvl = allLevel.FileInfo[i][0];
+
+                myLvl.speedboost = allLevel.FileInfo[i][1];
+              
+                myLvl.intenseMilk = allLevel.FileInfo[i][2];
                 
-                    // Populate speedboost list, add objs to list
-                    speedboost = allLevel.FileInfo[i][1];
-                    speedList = new List<Collectibles>(speedboost);
-                    foreach (Collectibles collect in speedList)
-                    {
-                        speedList.Add(collectible);
-                        collectible.CollectibleImage = speedImg;
-                    }
+                myLvl.invincibility = allLevel.FileInfo[i][3];
+                
+                myLvl.obst = allLevel.FileInfo[i][4];
+               
+                myLvl.ids = allLevel.FileInfo[i][5];
+                
+                lvlList.Add(myLvl);
+            }           
+        }
+        
+        public void GetLvl(int lvl)
+        {
+            currlvl = LvlList[lvl-1].currlvl;
+            speedboost = LvlList[lvl-1].speedboost;
+            intenseMilk = LvlList[lvl-1].intenseMilk;
+            invincibility = LvlList[lvl-1].invincibility;
+            obst = LvlList[lvl-1].obst;
+            ids = LvlList[lvl-1].ids;
 
-                    // Populate intenseMilk list
-                    intenseMilk = allLevel.FileInfo[i][2];
-                    milkList = new List<Collectibles>(intenseMilk);
-                    foreach (Collectibles collect in milkList)
-                    {
-                        milkList.Add(collectible);
-                        collectible.CollectibleImage = milkImg;
-                    }
-
-                    // Populate invincibility list
-                    invincibility = allLevel.FileInfo[i][3];
-                    invincList = new List<Collectibles>(invincibility);
-                    foreach(Collectibles collect in invincList)
-                    {
-                        invincList.Add(collectible);
-                        collectible.CollectibleImage = invincImg;
-                    }
-
-                    // Populate obstacle list
-                    obst = allLevel.FileInfo[i][4];
-                    obstList = new List<Obstacles>(obst);
-                    foreach (Obstacles obstacle in obstList)
-                    {
-                        obstList.Add(obstObj);
-                    }
-
-                    // Populate id list
-                    ids = allLevel.FileInfo[i][5];
-                    idList = new List<Collectibles>(ids);
-                    foreach (Collectibles collect in idList)
-                    {
-                        idList.Add(collectible);
-                        collectible.CollectibleImage = idImg;
-                    }
-                }           
-            }
         }
     }
 }
