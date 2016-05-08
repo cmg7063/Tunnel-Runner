@@ -171,13 +171,13 @@ namespace TunnelRunner
             }
             for (int l = 1; l <= currLvl.LvlList[character.Level - 1].IntenseMilk; l++)
             {
-                collectOb = new Collectibles(rgn.Next((l - 1) * (frequency - character.Level * 2), l * (frequency - character.Level * 2)), rgn.Next(10, 300), 70, 90, true, milk);
+                collectOb = new Collectibles(rgn.Next((l - 1) * (frequency - character.Level * 2), l * (frequency - character.Level * 2)), rgn.Next(10, 300), 36, 70, true, milk);
                 collectOb.CollectibleImage = milk;
                 collectibleList.Add(collectOb);
             }
             for (int l = 1; l <= currLvl.LvlList[character.Level - 1].Ids; l++)
             {
-                idOb = new Collectibles(rgn.Next((l - 1) * (frequency - character.Level * 2), l * (frequency - character.Level * 2)), rgn.Next(10, 300), 70, 90, true, id);
+                idOb = new Collectibles(rgn.Next((l - 1) * (frequency - character.Level * 2), l * (frequency - character.Level * 2)), rgn.Next(10, 300), 52, 70, true, id);
                 idOb.CollectibleImage = id;
                 idList.Add(idOb);
             }
