@@ -712,6 +712,7 @@ namespace TunnelRunner
             character.Health = 3;
             character.Level = 0;
             score = 0;
+            snowPos.X = -900;
             NextLevel();
         }
         
