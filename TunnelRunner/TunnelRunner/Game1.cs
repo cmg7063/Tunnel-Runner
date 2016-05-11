@@ -501,13 +501,13 @@ namespace TunnelRunner
                     switch (character.Health)
                     {
                         case 3:
-                            spriteBatch.Draw(healthBarThree, new Rectangle(5, 1, 100, 20), Color.White);
+                            spriteBatch.Draw(healthBarThree, new Rectangle(5, 1, 90, 22), Color.White);
                             break;
                         case 2:
-                            spriteBatch.Draw(healthBarTwo, new Rectangle(5, 1, 100, 20), Color.White);
+                            spriteBatch.Draw(healthBarTwo, new Rectangle(5, 1, 90, 22), Color.White);
                             break;
                         case 1:
-                            spriteBatch.Draw(healthBarOne, new Rectangle(5, 1, 100, 20), Color.White);
+                            spriteBatch.Draw(healthBarOne, new Rectangle(5, 1, 90, 22), Color.White);
                             break;
                     }
                     spriteBatch.Draw(snow, new Rectangle((int)snowPos.X, (int)snowPos.Y, 900, 400), Color.White);

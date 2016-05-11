@@ -282,3 +282,8 @@ E:\C# HW\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\OpenTK.dll
 E:\C# HW\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.csprojResolveAssemblyReference.cache
 E:\C# HW\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\gameOver.png
 E:\C# HW\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\snow.png
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\gameOver.png
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\normanSprite.png
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Collectibles\ID Card.png
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Collectibles\INTENSE Milk.png
+C:\Users\Corinne Green\Desktop\GDAPS Projects\GDAPS II\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\snow.png

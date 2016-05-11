@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>E:/C# HW/Tunnel-Runner/TunnelRunner/TunnelRunner/Content/buff.png</SourceFile>
-  <SourceTime>2016-04-24T13:53:47.6576284-04:00</SourceTime>
-  <DestFile>E:/C# HW/Tunnel-Runner/TunnelRunner/TunnelRunner/Content/bin/WindowsGL/buff.xnb</DestFile>
-  <DestTime>2016-04-24T14:16:04.1895484-04:00</DestTime>
+  <SourceFile>C:/Users/Corinne Green/Desktop/GDAPS Projects/GDAPS II/Tunnel-Runner/TunnelRunner/TunnelRunner/Content/buff.png</SourceFile>
+  <SourceTime>2016-05-11T00:44:15.5117863-04:00</SourceTime>
+  <DestFile>C:/Users/Corinne Green/Desktop/GDAPS Projects/GDAPS II/Tunnel-Runner/TunnelRunner/TunnelRunner/Content/bin/WindowsGL/buff.xnb</DestFile>
+  <DestTime>2016-05-11T00:45:56.1068077-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2015-04-29T13:14:44-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
