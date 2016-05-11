@@ -321,3 +321,39 @@ Z:\IGMProfile\Documents\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\De
 Z:\IGMProfile\Documents\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\MonoGame.Framework.dll
 Z:\IGMProfile\Documents\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\OpenTK.dll
 Z:\IGMProfile\Documents\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.csprojResolveAssemblyReference.cache
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.exe
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.pdb
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\background.xnb
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\buff.xnb
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\id.xnb
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\life.xnb
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\1Life.png
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\2Life.png
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\3Life.png
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\background.png
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Exit.png
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Menu.png
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\gameOver.png
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\ground.png
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\kate.PNG
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\kateSprite.PNG
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\norman.png
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Options.png
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Selection.png
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\Start.png
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\normanSprite.png
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Obstacles\chair.png
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Collectibles\ID Card.png
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Collectibles\INTENSE Milk.png
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\snow.png
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\title.png
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Tunnel Walls\Wall1.JPG
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Tunnel Walls\Wall2.jpg
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\SpriteFont1.xnb
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\TunnelRunner.exe
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\TunnelRunner.pdb
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\MonoGame.Framework.dll
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\OpenTK.dll
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.csprojResolveAssemblyReference.cache
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\title.png
+Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\bg.png

@@ -42,8 +42,8 @@ namespace TunnelRunner
         // Const ints
         const int PLAYER_W = 108;
         const int PLAYER_H = 150;
-        const int BUTT_W = 150;
-        const int BUTT_H = 50;
+        const int BUTT_W = 106;
+        const int BUTT_H = 33;
 
         // Vector2
         Vector2 backgroundPos;
@@ -53,6 +53,7 @@ namespace TunnelRunner
         Vector2 snowPos;
 
         // Texture2D GameState button textures
+        Texture2D background;
         Texture2D startButton;
         Texture2D exitButton;
         Texture2D charaSelButt;
@@ -122,7 +123,7 @@ namespace TunnelRunner
             katePos = new Vector2(100, 150);
 
             // There is 25px gap in between each button
-            titlePos = new Vector2(0, 0);
+            titlePos = new Vector2(500, 250);
             startButtPos = new Vector2(50, 200);
             charaSelButtPos = new Vector2(50, 250);
             optionButtPos = new Vector2( 50, 300);
@@ -226,11 +227,11 @@ namespace TunnelRunner
             exitButton = Content.Load<Texture2D>("Buttons/Exit");
             charaSelButt = Content.Load<Texture2D>("Buttons/Selection");
             menuButton = Content.Load<Texture2D>("Buttons/Menu");
-            //background = Content.Load<Texture2D>("background");
+            background = Content.Load<Texture2D>("Buttons/bg");
             kateSprite = Content.Load<Texture2D>("kateSprite");
             kate = Content.Load<Texture2D>("kate");
             norman = Content.Load<Texture2D>("norman");
-            title = Content.Load<Texture2D>("title");
+            title = Content.Load<Texture2D>("Buttons/title");
             ground = Content.Load<Texture2D>("ground");
             healthBarThree = Content.Load<Texture2D>("3Life");
             healthBarTwo = Content.Load<Texture2D>("2Life");
@@ -465,16 +466,16 @@ namespace TunnelRunner
             spriteBatch.Begin();
             switch (gameState)
             {
-                case GameState.Menu:
-                    spriteBatch.Draw(title, titlePos, Color.White);
-                    //spriteBatch.Draw(background, backgroundPos, Color.White);
+                case GameState.Menu:               
+                    spriteBatch.Draw(background, backgroundPos, Color.White);
+                    spriteBatch.Draw(title, titlePos, Color.White);             
                     spriteBatch.Draw(startButton, startButtPos, Color.White);
                     spriteBatch.Draw(optionButton, optionButtPos, Color.White);
                     spriteBatch.Draw(charaSelButt, charaSelButtPos, Color.White);
                     spriteBatch.Draw(exitButton, exitButtPos, Color.White);                    
                     break;
                 case GameState.CharacterSelection:
-                    spriteBatch.Draw(title, titlePos, Color.White);
+                    spriteBatch.Draw(background, backgroundPos, Color.White);
                     spriteBatch.Draw(kate, new Vector2(katePos.X, katePos.Y), Color.White);
                     spriteBatch.Draw(norman, new Vector2(normanPos.X, normanPos.Y), Color.White);
                     break;
@@ -605,10 +606,10 @@ namespace TunnelRunner
             Rectangle menuButtRect = new Rectangle(630, 1, 60, 20);
             if (gameState == GameState.Menu)
             {
-                Rectangle startButtonRect = new Rectangle((int)startButtPos.X, (int)startButtPos.Y, 112, 35);
-                Rectangle exitButtonRect = new Rectangle((int)exitButtPos.X, (int)exitButtPos.Y, 76, 35);
-                Rectangle optionButtonRect = new Rectangle((int)optionButtPos.X, (int)optionButtPos.Y, 140, 36);
-                Rectangle charaSelButtRect = new Rectangle((int)charaSelButtPos.X, (int)charaSelButtPos.Y, 180, 36);
+                Rectangle startButtonRect = new Rectangle((int)startButtPos.X, (int)startButtPos.Y, 106, 33);
+                Rectangle exitButtonRect = new Rectangle((int)exitButtPos.X, (int)exitButtPos.Y, 84, 40);
+                Rectangle optionButtonRect = new Rectangle((int)optionButtPos.X, (int)optionButtPos.Y, 161, 51);
+                Rectangle charaSelButtRect = new Rectangle((int)charaSelButtPos.X, (int)charaSelButtPos.Y, 198, 40);
                 
                 if (mouseClick.Intersects(startButtonRect))
                 {
