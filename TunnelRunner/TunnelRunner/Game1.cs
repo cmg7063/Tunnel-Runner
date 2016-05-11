@@ -606,10 +606,10 @@ namespace TunnelRunner
             Rectangle menuButtRect = new Rectangle(630, 1, 60, 20);
             if (gameState == GameState.Menu)
             {
-                Rectangle startButtonRect = new Rectangle((int)startButtPos.X, (int)startButtPos.Y, 106, 33);
-                Rectangle exitButtonRect = new Rectangle((int)exitButtPos.X, (int)exitButtPos.Y, 84, 40);
-                Rectangle optionButtonRect = new Rectangle((int)optionButtPos.X, (int)optionButtPos.Y, 161, 51);
-                Rectangle charaSelButtRect = new Rectangle((int)charaSelButtPos.X, (int)charaSelButtPos.Y, 198, 40);
+                Rectangle startButtonRect = new Rectangle((int)startButtPos.X, (int)startButtPos.Y, 112, 39);
+                Rectangle exitButtonRect = new Rectangle((int)exitButtPos.X, (int)exitButtPos.Y, 90, 46);
+                Rectangle optionButtonRect = new Rectangle((int)optionButtPos.X, (int)optionButtPos.Y, 166, 50);
+                Rectangle charaSelButtRect = new Rectangle((int)charaSelButtPos.X, (int)charaSelButtPos.Y, 199, 46);
                 
                 if (mouseClick.Intersects(startButtonRect))
                 {
