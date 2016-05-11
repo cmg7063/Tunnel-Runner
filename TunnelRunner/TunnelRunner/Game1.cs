@@ -485,7 +485,7 @@ namespace TunnelRunner
                     spriteBatch.DrawString(spriteFont, "Level: " + character.Level, new Vector2(250.0f, 0.0f), Color.White);
                     spriteBatch.Draw(ground, new Rectangle(0, 380, 700, 20), Color.White);
                     spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
-                    spriteBatch.DrawString(spriteFont, "Score: " + score, new Vector2(50, 50), Color.White); //for testing score
+                    spriteBatch.DrawString(spriteFont, "Score: " + score, new Vector2(350.0f, 0.0f), Color.White); 
                     for (int i = 0; i <chairList.Count; i++)
                     {
                         chairList[i].Draw(spriteBatch);
