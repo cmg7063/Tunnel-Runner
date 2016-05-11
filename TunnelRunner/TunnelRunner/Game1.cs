@@ -32,6 +32,8 @@ namespace TunnelRunner
         Texture2D chair;
         Texture2D milk;
         Texture2D id;
+        Texture2D snow;
+        Texture2D gameOver;
 
         // Tunnel walls
         Scrolling tunnelWall1;
@@ -48,6 +50,7 @@ namespace TunnelRunner
         Vector2 normanPos;
         Vector2 katePos;
         Vector2 titlePos;
+        Vector2 snowPos;
 
         // Texture2D GameState button textures
         Texture2D startButton;
@@ -148,6 +151,8 @@ namespace TunnelRunner
             currLvl.ObsImg = chair;
             currLvl.MilkImg = milk;
 
+            snowPos = new Vector2(-900, 0);
+
             base.Initialize();
         }
 
@@ -235,6 +240,9 @@ namespace TunnelRunner
             id = Content.Load<Texture2D>("Collectibles/ID Card");
             spriteFont = Content.Load<SpriteFont>("SpriteFont1");
             normanSprite = Content.Load<Texture2D>("normanSprite");
+
+            snow = Content.Load<Texture2D>("snow");
+            gameOver = Content.Load<Texture2D>("gameOver");
 
             character.CharacterSprite = Content.Load<Texture2D>("kateSprite");//default sprite
             // TODO: use this.Content to load your game content here
@@ -379,7 +387,12 @@ namespace TunnelRunner
                     }
                     else
                     {
-                        gameState = GameState.GameOver;
+                        if(snowPos.X<0)
+                        {
+                            snowPos.X += 5;
+                        }
+                        else
+                        { gameState = GameState.GameOver; }
                     }
                     break;
                 case GameState.Options:
@@ -497,14 +510,13 @@ namespace TunnelRunner
                             spriteBatch.Draw(healthBarOne, new Rectangle(5, 1, 100, 20), Color.White);
                             break;
                     }
-
+                    spriteBatch.Draw(snow, new Rectangle((int)snowPos.X, (int)snowPos.Y, 900, 400), Color.White);
                     break;
                 case GameState.Options:
                     spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
                     break;
                 case GameState.GameOver:
-                    spriteBatch.Draw(title, titlePos, Color.White);
-                    spriteBatch.DrawString(spriteFont, "GAME OVER", new Vector2(300, 150), Color.Red);
+                    spriteBatch.Draw(gameOver, new Rectangle(0,0,900,400), Color.White);
                     spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
                     break;
                 case GameState.Pause:

@@ -280,3 +280,5 @@ E:\C# HW\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\TunnelRunne
 E:\C# HW\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\MonoGame.Framework.dll
 E:\C# HW\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\OpenTK.dll
 E:\C# HW\Tunnel-Runner\TunnelRunner\TunnelRunner\obj\x86\Debug\TunnelRunner.csprojResolveAssemblyReference.cache
+E:\C# HW\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\gameOver.png
+E:\C# HW\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\snow.png
