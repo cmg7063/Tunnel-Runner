@@ -231,7 +231,7 @@ namespace TunnelRunner
             kateSprite = Content.Load<Texture2D>("kateSprite");
             kate = Content.Load<Texture2D>("kate");
             norman = Content.Load<Texture2D>("norman");
-            title = Content.Load<Texture2D>("Buttons/title");
+            title = Content.Load<Texture2D>("Buttons/title1");
             ground = Content.Load<Texture2D>("ground");
             healthBarThree = Content.Load<Texture2D>("3Life");
             healthBarTwo = Content.Load<Texture2D>("2Life");

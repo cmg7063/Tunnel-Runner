@@ -80,7 +80,7 @@
     <Content Include="Content\Buttons\Menu.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Buttons\title.png">
+    <Content Include="Content\Buttons\title1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\gameOver.png">
