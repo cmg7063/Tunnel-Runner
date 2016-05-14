@@ -404,3 +404,12 @@ C:\Users\Corinne Green\Desktop\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\Windo
 C:\Users\Corinne Green\Desktop\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Music\Song.wav
 C:\Users\Corinne Green\Desktop\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\prologueScreen.png
 C:\Users\Corinne Green\Desktop\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\optionScreen.png
+E:\C# HW\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Music\Song.wav
+E:\C# HW\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\bg.png
+E:\C# HW\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\title.png
+E:\C# HW\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\title1.png
+E:\C# HW\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\menuScreen.png
+E:\C# HW\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\optionScreen.png
+E:\C# HW\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\prologueScreen.png
+E:\C# HW\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\selectionScreen.png
+E:\C# HW\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\title1.png

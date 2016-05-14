@@ -194,28 +194,6 @@ namespace TunnelRunner
                 idOb.CollectibleImage = id;
                 idList.Add(idOb);
             }
-            /*chairList.Clear();
-            collectibleList.Clear();
-            idList.Clear();
-            character.Level++;
-            Random rng = new Random();
-            for(int i = 1; i <= character.Level * character.Level * 300; i++)
-            {
-
-                chairOb = new Obstacles(rng.Next((i-1)* (frequency - 2 * character.Level), i*(frequency-2*character.Level)), rng.Next(10, 200), 70, 90, true, chair);//changed the start position for the chair so i can actually see if it is moving correctly
-                chairOb.CollectibleImage = chair;
-                chairList.Add(chairOb);
-            }
-            for(int i = 1; i <= character.Level * 300; i++)
-            {
-                collectOb = new Collectibles(rng.Next((i - 1) * 700, i * 700), rng.Next(10, 200), 70, 70, true, milk); //this will only generate milk -- to be changed when we add more collectibles
-                collectOb.CollectibleImage = milk;
-                collectibleList.Add(collectOb);
-
-                idOb = new Collectibles(rng.Next((i - 1) * 700, i * 700), rng.Next(10, 200), 50, 50, true, id);
-                idOb.CollectibleImage = id;
-                idList.Add(idOb);
-            }*/
         }
         protected override void LoadContent()
         {
@@ -492,19 +470,9 @@ namespace TunnelRunner
                     spriteBatch.Draw(prologue, new Rectangle(0, 0, 700, 400), Color.White);
                     break;
                 case GameState.Menu:
-                    /*spriteBatch.Draw(background, backgroundPos, Color.White);
-                    //spriteBatch.Draw(title, titlePos, Color.White);             
-                    spriteBatch.Draw(startButton, startButtPos, Color.White);
-                    spriteBatch.Draw(optionButton, optionButtPos, Color.White);
-                    spriteBatch.Draw(charaSelButt, charaSelButtPos, Color.White);
-                    //spriteBatch.Draw(charaSelButt, new Rectangle((int)charaSelButtPos.X, (int)charaSelButtPos.Y, 199, 46), Color.Red);
-                    spriteBatch.Draw(exitButton, exitButtPos, Color.White);     */
                     spriteBatch.Draw(menu, new Rectangle(0, 0, 700, 400), Color.White);               
                     break;
                 case GameState.CharacterSelection:
-                    /*spriteBatch.Draw(background, backgroundPos, Color.White);
-                    spriteBatch.Draw(kate, new Vector2(katePos.X, katePos.Y), Color.White);
-                    spriteBatch.Draw(norman, new Vector2(normanPos.X, normanPos.Y), Color.White);*/
                     spriteBatch.Draw(selScreen, new Rectangle(0, 0, 700, 400), Color.White);
                     break;
                 case GameState.Playing:
@@ -677,14 +645,12 @@ namespace TunnelRunner
                 {
                     character.CharacterSprite = normanSprite;
                     ResetGame();
-                    NextLevel();
                     gameState = GameState.Playing;
                 }
                 if (mouseClick.Intersects(kateRect))
                 {
                     character.CharacterSprite = kateSprite;
                     ResetGame();
-                    NextLevel();
                     gameState = GameState.Playing;
                 }
             }
