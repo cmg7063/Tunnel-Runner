@@ -35,8 +35,11 @@ namespace TunnelRunner
         Texture2D milk;
         Texture2D id;
         Texture2D snow;
+
+        // Screens
         Texture2D gameOver;
         Texture2D prologue;
+        Texture2D optionScreen;
 
         // Tunnel walls
         Scrolling tunnelWall1;
@@ -233,6 +236,7 @@ namespace TunnelRunner
             charaSelButt = Content.Load<Texture2D>("Buttons/Selection");
             menuButton = Content.Load<Texture2D>("Buttons/Menu");
             background = Content.Load<Texture2D>("Buttons/bg");
+            optionScreen = Content.Load<Texture2D>("optionScreen");
             kateSprite = Content.Load<Texture2D>("kateSprite");
             kate = Content.Load<Texture2D>("kate");
             norman = Content.Load<Texture2D>("norman");
@@ -538,12 +542,12 @@ namespace TunnelRunner
                     spriteBatch.Draw(snow, new Rectangle((int)snowPos.X, (int)snowPos.Y, 900, 400), Color.White);
                     break;
                 case GameState.Options:
-                    spriteBatch.Draw(background, backgroundPos, Color.White);
-                    spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
+                    spriteBatch.Draw(optionScreen, backgroundPos, Color.White);
+                    spriteBatch.DrawString(spriteFont, "Menu", new Vector2(620.0f, 0.0f), Color.White);
                     break;
                 case GameState.GameOver:
                     spriteBatch.Draw(gameOver, new Rectangle(0,0,900,400), Color.White);
-                    spriteBatch.Draw(menuButton, new Rectangle(630, 0, 60, 20), Color.White);
+                    spriteBatch.DrawString(spriteFont, "Menu", new Vector2(620.0f, 0.0f), Color.White);
                     break;
                 case GameState.Pause:
                     tunnelWall1.Draw(spriteBatch);
