@@ -397,3 +397,9 @@ Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\t
 Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\title1.png
 Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\menuScreen.png
 Z:\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\selectionScreen.png
+C:\Users\Corinne Green\Desktop\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Buttons\title.png
+C:\Users\Corinne Green\Desktop\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\menuScreen.png
+C:\Users\Corinne Green\Desktop\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\selectionScreen.png
+C:\Users\Corinne Green\Desktop\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\title1.png
+C:\Users\Corinne Green\Desktop\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\Music\Song.wav
+C:\Users\Corinne Green\Desktop\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\prologueScreen.png

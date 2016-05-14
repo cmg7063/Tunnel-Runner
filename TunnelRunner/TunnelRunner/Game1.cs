@@ -9,7 +9,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Media;
 namespace TunnelRunner
 {
-    enum GameState {CharacterSelection, Options, Playing, Pause, Menu, Exit,GameOver,Resume }//game over state added
+    enum GameState {CharacterSelection, Options, Playing, Pause, Menu, Prologue, Exit,GameOver,Resume }//game over state added
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
@@ -36,6 +36,7 @@ namespace TunnelRunner
         Texture2D id;
         Texture2D snow;
         Texture2D gameOver;
+        Texture2D prologue;
 
         // Tunnel walls
         Scrolling tunnelWall1;
@@ -134,7 +135,7 @@ namespace TunnelRunner
             character = new Character();
 
             character.Position = new Rectangle(10, 250, PLAYER_W, PLAYER_H);
-            gameState = GameState.Menu;
+            gameState = GameState.Prologue;
             msState = Mouse.GetState();
             previousMsState = msState;
 
@@ -249,6 +250,7 @@ namespace TunnelRunner
             snow = Content.Load<Texture2D>("snow");
             gameOver = Content.Load<Texture2D>("gameOver");
 
+            prologue = Content.Load<Texture2D>("prologueScreen");
             menu = Content.Load<Texture2D>("menuScreen");
             selScreen = Content.Load<Texture2D>("selectionScreen");
 
@@ -274,6 +276,14 @@ namespace TunnelRunner
 
             switch (gameState)
             {
+                case GameState.Prologue:
+                    msState = Mouse.GetState();
+                    if (previousMsState.LeftButton == ButtonState.Pressed && msState.LeftButton == ButtonState.Released)
+                    {
+                        MouseClick(msState.X, msState.Y);
+                    }
+                    previousMsState = msState;
+                    break;
                 case GameState.Menu:
                     character.Level = 0;
                     msState = Mouse.GetState();
@@ -474,6 +484,9 @@ namespace TunnelRunner
             spriteBatch.Begin();
             switch (gameState)
             {
+                case GameState.Prologue:
+                    spriteBatch.Draw(prologue, new Rectangle(0, 0, 700, 400), Color.White);
+                    break;
                 case GameState.Menu:
                     /*spriteBatch.Draw(background, backgroundPos, Color.White);
                     //spriteBatch.Draw(title, titlePos, Color.White);             
@@ -496,7 +509,7 @@ namespace TunnelRunner
                     spriteBatch.Draw(character.CharacterSprite, character.Position, new Rectangle(frame * PLAYER_W, 0, PLAYER_W, PLAYER_H), Color.White);
                     spriteBatch.DrawString(spriteFont, "Level: " + character.Level, new Vector2(250.0f, 0.0f), Color.White);
                     spriteBatch.Draw(ground, new Rectangle(0, 380, 700, 20), Color.White);
-                    spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
+                    spriteBatch.DrawString(spriteFont, "Menu", new Vector2(630.0f, 0.0f), Color.White);
                     spriteBatch.DrawString(spriteFont, "Score: " + score, new Vector2(350.0f, 0.0f), Color.White); 
                     for (int i = 0; i <chairList.Count; i++)
                     {
@@ -530,7 +543,7 @@ namespace TunnelRunner
                     break;
                 case GameState.GameOver:
                     spriteBatch.Draw(gameOver, new Rectangle(0,0,900,400), Color.White);
-                    spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
+                    spriteBatch.Draw(menuButton, new Rectangle(630, 0, 60, 20), Color.White);
                     break;
                 case GameState.Pause:
                     tunnelWall1.Draw(spriteBatch);
@@ -539,7 +552,7 @@ namespace TunnelRunner
                     spriteBatch.Draw(character.CharacterSprite, character.Position, new Rectangle(frame * PLAYER_W, 0, PLAYER_W, PLAYER_H), Color.White);
                     spriteBatch.DrawString(spriteFont, "Level: " + character.Level, new Vector2(250.0f, 0.0f), Color.White);
                     spriteBatch.Draw(ground, new Rectangle(0, 380, 700, 20), Color.White);
-                    spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
+                    spriteBatch.DrawString(spriteFont, "Menu", new Vector2(620.0f, 0.0f), Color.White);
                     spriteBatch.DrawString(spriteFont, "Score: " + score, new Vector2(50, 50), Color.White);
                     
 
@@ -559,13 +572,13 @@ namespace TunnelRunner
                     switch (character.Health)
                     {
                         case 3:
-                            spriteBatch.Draw(healthBarThree, new Rectangle(5, 1, 100, 20), Color.White);
+                            spriteBatch.Draw(healthBarThree, new Rectangle(5, 3, 39, 10), Color.White);
                             break;
                         case 2:
-                            spriteBatch.Draw(healthBarTwo, new Rectangle(5, 1, 100, 20), Color.White);
+                            spriteBatch.Draw(healthBarTwo, new Rectangle(5, 3, 39, 10), Color.White);
                             break;
                         case 1:
-                            spriteBatch.Draw(healthBarOne, new Rectangle(5, 1, 100, 20), Color.White);
+                            spriteBatch.Draw(healthBarOne, new Rectangle(5, 3, 39, 10), Color.White);
                             break;
                     }
                     break;
@@ -576,7 +589,7 @@ namespace TunnelRunner
                     spriteBatch.Draw(character.CharacterSprite, character.Position, new Rectangle(frame * PLAYER_W, 0, PLAYER_W, PLAYER_H), Color.White);
                     spriteBatch.DrawString(spriteFont, "Level: " + character.Level, new Vector2(250.0f, 0.0f), Color.White);
                     spriteBatch.Draw(ground, new Rectangle(0, 380, 700, 20), Color.White);
-                    spriteBatch.Draw(menuButton, new Rectangle(630, 1, 60, 20), Color.White);
+                    spriteBatch.DrawString(spriteFont, "Menu", new Vector2(620.0f, 0.0f), Color.White);
 
                     for (int i = 0; i < chairList.Count; i++)
                     {
@@ -616,13 +629,21 @@ namespace TunnelRunner
             bool sel = false;//for testing purpose
             Rectangle mouseClick = new Rectangle(x, y, 10, 10);
             Rectangle menuButtRect = new Rectangle(630, 1, 60, 20);
+            if (gameState == GameState.Prologue)
+            {
+                Rectangle nextButtonRect = new Rectangle(555, 360, 84, 30);
+                if (mouseClick.Intersects(nextButtonRect))
+                {
+                    gameState = GameState.Menu;
+                }
+            }
             if (gameState == GameState.Menu)
             {
                 Rectangle startButtonRect = new Rectangle((int)startButtPos.X, (int)startButtPos.Y, 120, 43);
                 Rectangle exitButtonRect = new Rectangle((int)exitButtPos.X, (int)exitButtPos.Y, 90, 35);
                 Rectangle optionButtonRect = new Rectangle((int)optionButtPos.X, (int)optionButtPos.Y, 158, 41);
                 Rectangle charaSelButtRect = new Rectangle((int)charaSelButtPos.X, (int)charaSelButtPos.Y, 190, 50);
-                
+
                 if (mouseClick.Intersects(startButtonRect))
                 {
                     gameState = GameState.Playing;
@@ -637,12 +658,11 @@ namespace TunnelRunner
                 {
                     Exit();
                 }
-               if (mouseClick.Intersects(charaSelButtRect))
+                if (mouseClick.Intersects(charaSelButtRect))
                 {
                     gameState = GameState.CharacterSelection;
                     sel = true;
                 }
-                
             }
             if (gameState == GameState.CharacterSelection)
             {

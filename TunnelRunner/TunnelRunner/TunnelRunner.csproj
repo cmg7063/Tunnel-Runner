@@ -101,6 +101,9 @@
     <Content Include="Content\menuScreen.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Music\Song.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\norman.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -125,13 +128,15 @@
     <Content Include="Content\Collectibles\INTENSE Milk.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\prologueScreen.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\selectionScreen.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\snow.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Music\Song.wma" />
     <Content Include="Content\title.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
