@@ -86,6 +86,9 @@
     <Content Include="Content\Buttons\title1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\creditScreen.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\gameOver.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

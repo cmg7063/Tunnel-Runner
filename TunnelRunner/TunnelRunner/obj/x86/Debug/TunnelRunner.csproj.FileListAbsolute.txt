@@ -413,3 +413,4 @@ E:\C# HW\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\opt
 E:\C# HW\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\prologueScreen.png
 E:\C# HW\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\selectionScreen.png
 E:\C# HW\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\title1.png
+C:\Users\Corinne Green\Desktop\Tunnel-Runner\TunnelRunner\TunnelRunner\bin\WindowsGL\Debug\Content\creditScreen.png

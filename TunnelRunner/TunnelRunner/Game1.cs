@@ -9,7 +9,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Media;
 namespace TunnelRunner
 {
-    enum GameState {CharacterSelection, Options, Playing, Pause, Menu, Prologue, Exit,GameOver,Resume }//game over state added
+    enum GameState {CharacterSelection, Options, Credit, Playing, Pause, Menu, Prologue, Exit,GameOver,Resume }//game over state added
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
@@ -39,6 +39,7 @@ namespace TunnelRunner
         // Screens
         Texture2D gameOver;
         Texture2D prologue;
+        Texture2D creditScreen;
         Texture2D optionScreen;
 
         // Tunnel walls
@@ -233,6 +234,7 @@ namespace TunnelRunner
             gameOver = Content.Load<Texture2D>("gameOver");
 
             prologue = Content.Load<Texture2D>("prologueScreen");
+            creditScreen = Content.Load<Texture2D>("creditScreen");
             menu = Content.Load<Texture2D>("menuScreen");
             selScreen = Content.Load<Texture2D>("selectionScreen");
 
@@ -259,6 +261,14 @@ namespace TunnelRunner
             switch (gameState)
             {
                 case GameState.Prologue:
+                    msState = Mouse.GetState();
+                    if (previousMsState.LeftButton == ButtonState.Pressed && msState.LeftButton == ButtonState.Released)
+                    {
+                        MouseClick(msState.X, msState.Y);
+                    }
+                    previousMsState = msState;
+                    break;
+                case GameState.Credit:
                     msState = Mouse.GetState();
                     if (previousMsState.LeftButton == ButtonState.Pressed && msState.LeftButton == ButtonState.Released)
                     {
@@ -469,11 +479,16 @@ namespace TunnelRunner
                 case GameState.Prologue:
                     spriteBatch.Draw(prologue, new Rectangle(0, 0, 700, 400), Color.White);
                     break;
+                case GameState.Credit:
+                    spriteBatch.Draw(creditScreen, new Rectangle(0, 0, 700, 400), Color.White);
+                    spriteBatch.DrawString(spriteFont, "Menu", new Vector2(620.0f, 350.0f), Color.White);
+                    break;
                 case GameState.Menu:
                     spriteBatch.Draw(menu, new Rectangle(0, 0, 700, 400), Color.White);               
                     break;
                 case GameState.CharacterSelection:
                     spriteBatch.Draw(selScreen, new Rectangle(0, 0, 700, 400), Color.White);
+                    spriteBatch.DrawString(spriteFont, "Menu", new Vector2(620.0f, 350.0f), Color.White);
                     break;
                 case GameState.Playing:
                     tunnelWall1.Draw(spriteBatch);
@@ -600,7 +615,10 @@ namespace TunnelRunner
         {
             bool sel = false;//for testing purpose
             Rectangle mouseClick = new Rectangle(x, y, 10, 10);
-            Rectangle menuButtRect = new Rectangle(630, 1, 60, 20);
+            Rectangle menuButtRect = new Rectangle(620, 1, 60, 20);
+            Rectangle menuButtRect1 = new Rectangle(620, 350, 60, 20);
+            
+
             if (gameState == GameState.Prologue)
             {
                 Rectangle nextButtonRect = new Rectangle(555, 360, 84, 30);
@@ -653,6 +671,10 @@ namespace TunnelRunner
                     ResetGame();
                     gameState = GameState.Playing;
                 }
+                if (mouseClick.Intersects(menuButtRect1))
+                {
+                    gameState = GameState.Menu;
+                }
             }
             if(gameState==GameState.Playing)
             {
@@ -664,10 +686,27 @@ namespace TunnelRunner
             }
             if (gameState == GameState.Options)
             {
+                Rectangle creditButt = new Rectangle(317, 178, 55, 20 );
+                Rectangle prologueButt = new Rectangle(314, 200, 63, 21);
                 if (mouseClick.Intersects(menuButtRect))
                 {
                     gameState = GameState.Menu;
                     ResetGame();
+                }
+                if (mouseClick.Intersects(creditButt))
+                {
+                    gameState = GameState.Credit;
+                }
+                if (mouseClick.Intersects(prologueButt))
+                {
+                    gameState = GameState.Prologue;
+                }
+            }
+            if(gameState == GameState.Credit)
+            {
+                if (mouseClick.Intersects(menuButtRect1))
+                {
+                    gameState = GameState.Menu;
                 }
             }
             if (gameState == GameState.GameOver)
